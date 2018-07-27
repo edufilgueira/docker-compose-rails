@@ -1,0 +1,51 @@
+<%- model_class = ModelosMarca -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.modelos_marcas', default: ModelosMarca.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.modelos_marca', default: ModelosMarca.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_modelos_marca_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name(:modelo) %></th>
+                  <th><%= model_class.human_attribute_name(:marca_veiculo) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @modelos_marcas.each do |modelos_marca| %>
+                <tr>
+                  <td><%= modelos_marca.modelo %></td>
+                  <td><%= modelos_marca.marca_veiculo.marca %></td>
+                <td>
+                    <%= link_to_show(modelos_marca) %>
+                    <%= link_to_edit(edit_modelos_marca_path(modelos_marca)) %>
+                    <%= link_to_delete(modelos_marca) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<%- model_class = Socioeduk::Contato -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_contato', default: Socioeduk::Contato.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-sm-12 b-r">
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:tipo_contato) %></th>
+          <th>Telefone</th>
+          <th width="18%"><%= I18n.t('helpers.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% socioeduk_contatos&.each do |socioeduk_contato| %>
+        <tr>
+          <td><%= socioeduk_contato.tipo_contato.descricao %></td>
+          <td><%= "#{socioeduk_contato.ddd} #{socioeduk_contato.numero}" %></td>
+          <td>
+            <%= link_to_edit(edit_socioeduk_jovem_contato_path(@socioeduk_jovem, socioeduk_contato), remote: true) %>
+            <%= link_to_delete(socioeduk_jovem_contato_path(@socioeduk_jovem)) %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

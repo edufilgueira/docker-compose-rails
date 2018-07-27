@@ -1,0 +1,29 @@
+<%- model_class = UnidadeSocioeducativa -%>
+<% content_for :ibox_content do %>
+  <%= link_to_new new_unidade_socioeducativa_path %>
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+         <th><%= model_class.human_attribute_name(:sigla) %></th>
+         <th><%= model_class.human_attribute_name(:nome) %></th>
+         <th><%= model_class.human_attribute_name(:endereco) %></th>
+        <th width="18%"><%= I18n.t('helpers.actions') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @unidades_socioeducativas.each do |unidade_socioeducativa| %>
+        <tr>
+          <td><%= unidade_socioeducativa.sigla %></td>
+          <td><%= unidade_socioeducativa.nome %></td>
+          <td><%= unidade_socioeducativa.endereco %></td>
+          <td>
+            <%= link_to_show(unidade_socioeducativa) %>
+            <%= link_to_edit(edit_unidade_socioeducativa_path(unidade_socioeducativa)) %>
+            <%= link_to_delete(unidade_socioeducativa) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: I18n.t('activerecord.models.unidade_socioeducativa', default: UnidadeSocioeducativa.model_name.plural.humanize.upcase) } %>

@@ -1,0 +1,31 @@
+<%= form_for(@socioeducando_atendido, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @socioeducando_atendido %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-6">
+      <%= f.label :unidade_socioeducativa_id, class: 'required' %>
+      <%= f.select :unidade_socioeducativa_id, UnidadeSocioeducativa.all.collect{ |a| [a.nome, a.id] }, {include_blank: 'Selecione'}, class: 'form-control select2' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <%= f.label :ano, class: 'required' %>
+      <%= f.number_field :ano, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.label :mes, class: 'required' %>
+      <%= f.select :mes, meses, {include_blank: 'Selecione'}, class: 'form-control select2' %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.label :quantidade, class: 'required' %>
+      <%= f.number_field :quantidade, class: 'form-control'  %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-6">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), socioeducandos_atendidos_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

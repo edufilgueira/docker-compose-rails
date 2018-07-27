@@ -1,0 +1,45 @@
+<% content_for :title do %>
+  <%= t('.title', default: @classe_patrimonio.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @classe_patrimonio.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= ClassePatrimonio.human_attribute_name :grupo_patrimonio %></th>
+                  <th><%= ClassePatrimonio.human_attribute_name :codigo %></th>
+                  <th><%= ClassePatrimonio.human_attribute_name :nome %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @classe_patrimonio.grupo_patrimonio %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @classe_patrimonio.codigo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @classe_patrimonio.nome %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', classe_patrimonios_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_classe_patrimonio_path(@classe_patrimonio), class: 'btn btn-detran-primary' %>

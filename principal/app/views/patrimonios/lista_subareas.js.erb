@@ -1,0 +1,6 @@
+var area_id = $('#patrimonio_area_id').val();
+if (area_id == null) {
+  $('#subarea').empty()
+} else {
+  $('#subarea').empty().html("<%= j options_from_collection_for_select(@subareas, :id, :nome) %>");
+}

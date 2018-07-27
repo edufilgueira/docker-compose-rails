@@ -1,0 +1,12 @@
+// $("#servico_realizado_gestor_unidade_id").empty().append("<%= escape_javascript options_from_collection_for_select(@unidades, :id, :nome_pessoa) %>")
+$("#gestor_unidade_id").val("<%= @unidades.first&.nome_pessoa %>")
+$("#servico_realizado_gestor_unidade_id").val("<%= @unidades.first&.id %>")
+$("#servico_realizado_area_id").empty().append("<%= escape_javascript options_from_collection_for_select(@areas, :id, :nome) %>")
+$("#servico_realizado_area_id").trigger('change')
+if ("<%= @unidades.first&.nome_pessoa %>" != "") {
+  $(".gestor_unidade_id").css('display', 'none')
+  $(".gestor_unidade_id").parent().removeClass('control-group error')
+} else {
+  $(".gestor_unidade_id").css('display', 'block')
+  $(".gestor_unidade_id").parent().addClass('control-group error')
+}

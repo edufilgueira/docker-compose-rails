@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <%= t('.title', default: @pessoa.class.model_name.human ) %>
+  </div>
+  <div class="card-body">
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+                    <th><%= Pessoa.human_attribute_name :nome %></th>
+                    <th><%= Pessoa.human_attribute_name :cpf %></th>
+              </tr>
+      </thead>
+      <tbody>
+      <tr>
+                    <td style="min-width: 90px; word-break: break-all;"><%= @pessoa.nome %></th>
+                    <td style="min-width: 90px; word-break: break-all;"><%= @pessoa.cpf %></th>
+              </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to('Listar', pessoas_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_pessoa_path(@pessoa), class: 'btn btn-detran-primary' %>

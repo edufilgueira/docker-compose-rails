@@ -1,0 +1,15 @@
+$('#classe_patrimonio_id').empty().append("<%= j(options_from_collection_for_select(@classes_patrimonio, :id, :nome)) %>");
+var classe_patrimonio_id = $('#classe_patrimonio_id option:selected').val()
+$.ajax({
+  method: 'POST',
+  url: '<%= lista_itens_classe_patrimonios_path %>',
+  data: { classe_patrimonio_id: classe_patrimonio_id },
+  success: function () {
+    var item_patrimonio_id = $('#patrimonio_item_patrimonio_id option:selected').val();
+    $.ajax({
+      method: 'POST',
+      url: '<%= informacoes_item_patrimonio_patrimonios_path %>',
+      data: { patrimonio: {item_patrimonio_id: item_patrimonio_id }}
+    });
+  }
+});

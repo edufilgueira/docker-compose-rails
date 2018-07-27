@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <div>
+        <span class=" label label-info pull-right">
+          <%= l Date.today , format: :short%>
+        </span>
+      </div>
+      <h4>Cargos</h4>
+      <div class="caption">
+        <div class="ibox-content" id="quantidade_cargos">
+          <h1 class="no-margins">
+            <%= @dashboard.cargos[:quantidade] %>
+          </h1>
+          <div class="stat-percent font-bold text-info"><%= number_to_percentage @dashboard.cargos[:ocupados], precision:0 %><br>ocupados</div>
+          <small>QTDE</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <div>
+        <span class=" label label-primary pull-right">
+          <%= l Date.today , format: :short%>
+        </span>
+      </div>
+      <h4>Colaboradores</h4>
+      <div class="caption">
+        <div class="ibox-content" id="quantidade_colaboradores">
+          <h1 class="no-margins">
+            <%= @dashboard.colaboradores[:quantidade] %>
+          </h1>
+          <small>QTDE</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <div>
+        <span class="label label-danger pull-right">
+          <%= link_to '<i class="fa fa-inbox fa-2x"></i> '.html_safe, root_path, style:"color: white" %>
+        </span>
+      </div>
+      <h4>Entradas</h4>
+      <div class="caption">
+        <div class="ibox-content" id="quantidade_entrada">
+          <h1 class="no-margins">
+            <%= @dashboard.entradas[:quantidade] %>
+          </h1>
+          <div class="stat-percent font-bold text-info"><%=  number_to_percentage @dashboard.entradas[:qtd_sobre_cargos], precision:0 %> <i class="fa fa-level-up"></i></div>
+          <small>QTDE</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="thumbnail">
+      <div>
+        <span class="label label-danger pull-right">
+          <%= link_to '<i class="fa fa-inbox fa-2x"></i> '.html_safe, root_path, style:"color: white" %>
+        </span>
+      </div>
+      <h4>Sa&iacute;das</h4>
+      <div class="caption">
+        <div class="ibox-content" id="quantidade_saida">
+          <h1 class="no-margins">
+            <%= @dashboard.saidas[:quantidade] %>
+          </h1>
+          <div class="stat-percent font-bold text-info"><%= number_to_percentage @dashboard.saidas[:qtd_sobre_cargos], precision:0 %> <i class="fa fa-level-up"></i></div>
+          <small>QTDE</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% @q = Recursoshumanos::Vinculo.ransack(params[:q])  %>
+<%= search_form_for @q do |f| %>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <% f.collection_select :pessoas_id_eq, Pessoa.all, :id, :nome, {include_blank: true, prompt: "Destinado para"}, class: "form-control" %>
+    </div>
+    <div class="col-sm-3">
+      <% f.collection_select :pessoas_id_eq, Pessoa.all, :id, :nome, {include_blank: true, prompt: "Destinado para"}, class: "form-control" %>
+    </div>
+    <%  f.submit 'Buscar', class: "btn btn-primary" %>
+    <%  link_to "Limpar", solicitacao_transportes_path, class:"btn btn-warning" %>
+  </div>
+<% end %>

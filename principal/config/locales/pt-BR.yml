@@ -1,0 +1,568 @@
+pt-BR:
+  User: 'Usuário'
+  date:
+    abbr_day_names:
+    - Dom
+    - Seg
+    - Ter
+    - Qua
+    - Qui
+    - Sex
+    - Sáb
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Abr
+    - Mai
+    - Jun
+    - Jul
+    - Ago
+    - Set
+    - Out
+    - Nov
+    - Dez
+    day_names:
+    - Domingo
+    - Segunda
+    - Terça
+    - Quarta
+    - Quinta
+    - Sexta
+    - Sábado
+    formats:
+      default: ! '%d/%m/%Y h:m h'
+      long: ! '%d de %B de %Y'
+      long_week: ! '%A, %d de %B de %Y'
+      month_name: ! '%B'
+      short: ! '%d de %B'
+      short2: ! '%d %b'
+    month_names:
+    -
+    - Janeiro
+    - Fevereiro
+    - Março
+    - Abril
+    - Maio
+    - Junho
+    - Julho
+    - Agosto
+    - Setembro
+    - Outubro
+    - Novembro
+    - Dezembro
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente 1 hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente 1 mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente 1 ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase 1 ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: mais de 1 ano
+        other: mais de %{count} anos
+      x_days:
+        one: 1 dia
+        other: ! '%{count} dias'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minutos'
+      x_months:
+        one: 1 mês
+        other: ! '%{count} meses'
+      x_seconds:
+        one: 1 segundo
+        other: ! '%{count} segundos'
+    prompts:
+      day: Dia
+      hour: Hora
+      minute: Minuto
+      month: Mês
+      second: Segundo
+      year: Ano
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      invalid_field: 'Favor verifique o(s) seguinte(s) campo(s): %{campos}'
+      destroy_exception: Não foi possível apagar.
+      accepted: deve ser aceito.
+      blank: não pode ficar em branco
+      confirmation: não está de acordo.
+      empty: não pode ficar vazio.
+      equal_to: deve ser igual a %{count}.
+      even: deve ser par.
+      exclusion: não está disponível.
+      greater_than: deve ser maior que %{count}.
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}.
+      inclusion: não está incluído na lista.
+      invalid: campo inválido.
+      less_than: deve ser menor que %{count}.
+      less_than_or_equal_to: deve ser menor ou igual a %{count}.
+      not_a_number: não é um número.
+      not_an_integer: não é um número inteiro.
+      odd: deve ser ímpar.
+      record_invalid: ! 'A validação falhou: %{errors}'
+      taken: já existente no sistema.
+      too_long: ! 'é muito longo (máximo: %{count} caracteres)'
+      too_short: ! 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length: não possui o tamanho esperado (%{count} caracteres).
+    template:
+      body: ! 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: ! 'Não foi possível gravar %{model}: 1 erro'
+        other: ! 'Não foi possível gravar %{model}: %{count} erros.'
+  condicao:
+    sim: "sim"
+    nao: "não"
+  success:
+    save: "Salvo com sucesso."
+  helpers:
+    actions: "Ações"
+    links:
+      edit: "Editar"
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Tem certeza que deseja apagar este registro?"
+      destroy: "Apagar"
+      new: "Novo"
+      show: "Informações"
+      detail: "Detalhe"
+    titles:
+      edit: "Editar %{model}"
+      save: "Salvar %{model}"
+      new: "Inserir %{model}"
+      create: "Inserir %{model}"
+      delete: "Apagar %{model}"
+      modal:
+        details: 'Detalhe'
+        version: 'Versão'
+    select:
+      prompt: Por favor selecione
+      no_one: "Nenhum registro foi encontrado."
+    submit:
+      create: Criar
+      submit: Salvar
+      update: Atualizar
+    label:
+      user:
+        email: 'Email'
+        password: 'Senha'
+        password_confirmation: 'Confirmação de Senha'
+        current_password: 'Senha Atual'
+      uf:
+        nome: 'Nome'
+        sigla: 'Sigla'
+      defesa_previa_lei:
+        descricao: 'Descrição'
+        numero: 'Número'
+      defesa_previa_artigo:
+        descricao: 'Descrição'
+        codigo: 'Código'
+        lei_id: 'Lei'
+      defesa_previa_inciso:
+        descricao: 'Descrição'
+        codigo: 'Código'
+        artigo_id: 'Artigo'
+      defesa_previa_alinea:
+        descricao: 'Descrição'
+        codigo: 'Código'
+        descricao_completa: 'Descrição completa'
+      campo_calculado:
+        quantidade_cargo_contratado: Contratado
+        quantidade_cargo_disponivel: Disponível
+        
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Sem %{entry_name} encontrados"
+          one: "Mostrando 1 %{entry_name}"
+          other: "Mostrando todos %{count} %{entry_name}"
+      more_pages:
+        display_entries: "<p class='text-muted'>Mostrando %{first}-%{last} de %{total}</p>"
+  number:
+    currency:
+      format:
+        delimiter: .
+        format: ! '%u %n'
+        precision: 2
+        separator: ! ','
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: .
+      precision: 3
+      separator: ! ','
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: .
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: 'Byte'
+            other: 'Bytes'
+          gb: 'GB'
+          kb: 'KB'
+          mb: 'MB'
+          tb: 'TB'
+    percentage:
+      format:
+        delimiter: .
+    precision:
+      format:
+        delimiter: .
+  support:
+    array:
+      last_word_connector: ! ' e '
+      two_words_connector: ! ' e '
+      words_connector: ! ', '
+  time:
+    am: ''
+    formats:
+      default: ! '%d/%m/%Y, %H:%M:%S'
+      long: ! '%d de %B de %Y, %H:%M'
+      medium: ! '%d/%m/%Y %H:%M'
+      time: ! '%H:%M'
+      short: ! '%d de %B, %H:%M'
+    pm: ''
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  system:
+    initials: 'TP - Template Detran'
+    name: 'Sistema template padrão Detran'
+    version: 'v0.0.1'
+    indentifique: 'Identifique-se'
+    entries: 'Cadastros'
+    password: 'Senha'
+    company: 'Departamento Estadual de Trânsito - DETRAN-CE'
+    address: ' - Sede: Av. Godofredo Maciel, 2900 - Maraponga - Fortaleza/Ce CEP: 60.710-903'
+    contact: 'suporte aos sistemas:  (85) 3101.5820 ou 3101.5887 | DETRAN: 0800 275 6768 / Perícia: 154 - CNPJ: 07.135.668/0001-95'
+    copyright: '© 2011 - Governo do Estado do Ceará. Todos os direitos reservados.'
+    message:
+      not_permission: 'Usuário não possui permissão para acessar essa área:'
+    tab:
+      envolvidos: 'Envolvidos'
+      bases: 'Bases'
+      sectors: 'Setores'
+      lotacao_empresa: 'Empresa Lotação'
+      versions: 'Versões'
+  messages:
+    cadastro_sucesso: 'Registro incluído com sucesso.'
+    delecao_sucesso: 'Registro excluído com sucesso.'
+    atualizado_sucesso: 'Registro alterado com sucesso.'
+    inatividade: ''
+    associado_sucesso: 'Registro associado com sucesso.'
+    associacao_existente: '%{model} existente.'
+    delecao_erro: 'Não foi possível excluir o registro.'
+  activemodel:
+    errors:
+      <<: *errors
+
+  activerecord:
+    errors:
+      required: 'Obrigatório'
+      user:
+        not_found: 'Usuário não encontrado.'
+      messages:
+        record_invalid: "A validação falhou: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Não é possível excluir este registro, pois existe %{record} relecionado(a)."
+          has_many: "Não é possível excluir este registro, pois existem %{record} relacionados(as)."
+        required: deve existir
+    models:
+      socioeduk_endereco_jovem: "Endreço do Jovem"
+      mapa_de_bordo: "Mapa de bordo"
+      solicitacao_transporte: "Solicitação de transporte"
+      tipo_solicitacao_transporte: "Tipo de Solicitação"
+      veiculo: "Veículos"
+      tipo_de_combustivel: 'Tipos de combustíveis'
+      funcao_pessoa: 'Função das pessoas'
+      modelos_marca: 'Modelos'
+      posto_combustivel: 'Posto de combustíveis'
+      marca_veiculo: 'Marca de veículos'
+      usuario: "Usuário"
+      funcao: 'Funções'
+      jovem: 'Jovens'
+      indicador_assunto: 'Assuntos'
+      local_armazenamento: 'Locais de Armazenamento'
+      coleta_indicador: 'Coleta de Indicadores'
+      pessoa: 'Pessoa'
+      motorista: 'Motorista'
+      indicador_unidade_medida: 'Unidade de Medida'
+      unidades_medida: "Unidades de Medida"
+      material_movimentacao: "Movimentação de Material"
+      unidades_medidas: "Unidades de Medida"
+      grupo_material: "Grupo Material"
+      classe_material: "Classe Material"
+      material: "Material"
+      grupo_patrimonio: "Grupo Patrimônio"
+      classe_patrimonio: "Classe Patrimônio"
+      patrimonio: "Patrimônio"
+      deposito: "Depósitos"
+      status_patrimonio: "Status do Patrimônio"
+      item_patrimonio: "Item Patrimonial"
+      tipo_patrimonio: "Tipo do Patrimônio"
+      categoria_patrimonio: Categoria Patrimônio
+      eixo: Eixo
+      unidade_socioeducativa: Unidade Socioeducativa
+      area: Área
+      gestor_area: Gestor da Área
+      gestor_eixo: Gestor do Eixo
+      gestor_unidade: Gestor da Unidade
+      servico: Serviço
+      servico_realizado: Serviço Realizado
+      permissao: Permissão
+      capacidade_original: Capacidade Original
+      capacidade_diaria: Capacidade Diária
+      unidade_medida: Unidade de Medida
+      socioeduk_admissao: Admissão
+      socioeduk_admissao_anexo: Anexo Admissão
+      socioeduk_atendimento_inicial: Atendimento Inicial
+      socioeduk_atendimento_inicial_documento: Atend. Inicial Documento
+      socioeduk_contato: Contato
+      socioeduk_decisao_judicial: Decisão Judicial
+      socioeduk_deficiencia: Deficiência
+      socioeduk_documento: Documento
+      socioeduk_documento_forma_entrada: Documento Forma de Entrada
+      socioeduk_endereco: Endereço
+      socioeduk_evasao: Evasão
+      socioeduk_forma_entrada: Forma Entrada
+      socioeduk_infracao: Infração
+      socioeduk_infracao_preliminar: Infração Preliminar
+      socioeduk_jovem: Jovem
+      socioeduk_marca_corporal: Marca Corporal
+      socioeduk_opcao_sexual: Opção Sexual
+      socioeduk_subforma_entrada: Subforma Entrada
+      socioeduk_tipo_contato: Tipo Contato
+      socioeduk_tipo_deficiencia: Tipo Deficiência
+      socioeduk_tipo_desligamento: Tipo Desligamento
+      socioeduk_tipo_infracao: Tipo Infração
+      socioeduk_tipo_marca_corporal: Tipo Marca Corporal
+      socioeduk_transferencia: Transferência
+      socioeduk_tipo_sinal: Tipo Sinal
+      recursoshumanos_tipo_vinculo: Tipo de Vínculo
+      recursoshumanos_tipo_legal: Tipos Legais
+      recursoshumanos_contrato: Vagas
+      recursoshumanos_cargo: Cargos
+      recursoshumanos_vinculo: Contratação
+      recursoshumanos_dashboard: Dashboard
+      dashboard_patrimonio: Dashboard
+    attributes:
+      indicador:
+        area: 'Área Responsável'
+        indicador_unidade_medida: 'Un. Medida'
+        abrangencia: 'Abrangência'
+        periodicidade_coleta: 'Periodicidade de coleta'
+        periodicidade_avaliacao: 'Periodicidade de avaliação'
+        indicador_assunto: Assunto
+      coleta_indicador:
+        area: 'Área Responsável'
+        abrangencia_coleta: 'Abrangência'
+        indice: 'Índice'
+        mes: 'Mês'
+        periodo_coleta: 'Período'
+      usuario:
+        current_password: Senha Atual
+        password: Nova Senha
+        password_confirmation: Confirmação de Senha
+      pessoa:
+        cpf: CPF
+        usuario: 'Usuário'
+        email_pessoal: 'E-mail pessoal'
+        data_contratacao: 'Data Contratação'
+        nome_pai: 'Nome do Pai'
+        nome_mae: 'Nome da Mãe'
+        Estado_civil: 'Estado Civil'
+        conjuge: 'Cônjuge'
+        profissao: 'Profissão'
+        data_nascimento: 'Data Nascimento'
+        naturalidade: 'Naturalidade'
+        Uf: 'Uf'
+        tipo_sanguineo: 'Tipo Sanguineo'
+        numero: 'Número'
+        ctps: 'CTPS'
+        serie: 'Série'
+        emissao: 'Emissão'
+        certificado_militar: 'Certificado Militar'
+        emissor_militar: 'Orgão Emissor'
+        titulo_eleitoral: 'Título Eleitoral'
+        secao: 'Seção'
+        cidade_eleitoral: 'Cidade Eleitoral'
+        estado_eleitoral: 'Estado Eleitoral'
+        agencia: 'Agência'
+        conta_corrente: 'Conta Corrente'
+      unidade_socioeducativa:
+        endereco: Endereço
+      area:
+        subarea_id: Área Principal
+        unidade_socioeducativa_id: Unidade Socioeducativa
+      gestor_area:
+        area_id: Área
+        pessoa_id: Pessoa
+        data_inicio: Data Início
+        data_termino: Data Término
+      gestor_eixo:
+        eixo_id: Eixo
+        pessoa_id: Pessoa
+        data_inicio: Data Início
+        data_termino: Data Término
+      gestor_unidade:
+        unidade_socioeducativa_id: Unidade
+        pessoa_id: Pessoa
+        data_inicio: Data Início
+        data_termino: Data Término
+      servico:
+        eixo_id: Eixo
+      servico_realizado:
+        eixo_id: Eixo
+        gestor_eixo_id: Gestor Eixo
+        unidade_socioeducativa_id: Unidade
+        gestor_unidade_id: Gestor Unidade
+        area_id: Área
+        gestor_area_id: Gestor Área
+        qtd_socioeducandos_atendidos: Jovens Atendidos
+        servico_id: Serviço
+        quantidade_realizados: Qtd realizados
+        meta: Meta de Serviços
+        desempenho_meta: Desempenho da Meta
+      capacidade_original:
+        unidade_socioeducativa_id: Unidade Socioeducativa
+        usuario_id: Usuário
+      capacidade_diaria:
+        unidade_socioeducativa_id: Unidade Socioeducativa
+        usuario_id: Usuário
+      unidade_medida:
+        descricao: Descrição
+        ativo: Ativo
+      socioeduk/jovem:
+        genders:
+          male: Masculino
+          female: Feminino
+          others: Outros
+      socioeduk/admissao:
+        jovem_id: Jovem
+      material:
+        grupo_material: Grupo
+        classe_material: Classe
+        nome: Nome Técnico
+        descricao: Especificação Técnica
+        unidades_medida: Unidade de Medida
+        quantidade: Quantidade
+        local_armazenamento: Local de Armazenamento
+      classe_material:
+        grupo_material: Grupo Material
+      patrimonio:
+        grupo_patrimonio: Grupo
+        grupo_patrimonio_id: Grupo
+        classe_patrimonio: Classe
+        classe_patrimonio_id: Classe
+        item_patrimonio: Item
+        item_patrimonio_id: Item
+        descricao: Especificação Técnica
+        unidade_socioeducativa_id: Sede/Unidades
+        area_id: Área
+        subarea_id: Subarea
+        deposito_id: Déposito
+        statsu_patrimonio: Status do Bem
+        origem_anterior_bem: Origem Anterior do Bem
+        tombo_anterior: Tombo Atenterior
+        origem_anterior: Origem Anterior do Bem
+        tombo_atual: Tombo Atual
+        origem_atual: Origem Atual do Bem
+        valor: Valor do Bem
+        ciclo_vida_util: Ciclo de Vida Útil do Bem
+        numero_siga: Nº do Siga
+        nota_fiscal: Nº Nota Fiscal
+        local_bem: Localização do bem
+      grupo_patrimonio:
+        categoria_patrimonio_id: Categoria
+        codigo: Código
+      classe_patrimonio:
+        codigo: Código
+        nome: Nome
+        grupo_patrimonio: Grupo
+      status_patrimonio:
+        descricao: Descrição
+      item_patrimonio:
+        grupo_patrimonio: Grupo
+        classe_patrimonio: Classe
+        classe_patrimonio_id: Classe
+        tipo_patrimonio: Tipo
+        tipo_patrimonio_id: Tipo
+        codigo: Nº Siga
+        descricao: Descrição
+      recursoshumanos/contrato:
+        recursoshumanos_tipo_legal: Tipo
+        recursoshumanos_tipo_vinculo: Tipo Vínculo
+        inicio: Início
+        numero: Número
+        ano: Ano
+        doe_ce: Numero do DOE
+        data_doe_ce: Data do Diário
+        pagina_doe_ce: Página do Diário
+        inicio_vigencia: Inicio da vigência
+        final_vigencia: Fim da vigência
+      recursoshumanos/cargo:
+        recursoshumanos_contratos: Contrato 
+      solicitacao_transporte:
+        tipo_solicitacao_transporte: Tipo de Solicitação
+        area: Área
+        urgente: Urgente?
+        justificativa_urgencia: Justificativa da Urgência
+      recursoshumanos/vinculo:
+        recursoshumanos_cargo: Cargo
+        pessoas: Pessoa 
+        data_inicio: Inicio da atividade
+        data_fim: Desligamento
+      status_patrimonio:
+        descricao: Descrição
+      socioeduk/tipo_sinal:
+        descricao: Descrição
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"

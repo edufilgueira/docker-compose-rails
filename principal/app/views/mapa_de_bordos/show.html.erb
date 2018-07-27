@@ -1,0 +1,61 @@
+<% content_for :title do %>
+  <%= t('.title', default: @mapa_de_bordo.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @mapa_de_bordo.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                                    <th><%= MapaDeBordo.human_attribute_name :veiculo %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :tipo_vistoria %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :data_vistoria %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :responsavel %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :motorista %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :km_inicial %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :hora_inicial %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :km_final %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :hora_final %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :percurso %></th>
+                                    <th><%= MapaDeBordo.human_attribute_name :parecer %></th>
+                                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.veiculo %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.tipo_vistoria %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.data_vistoria %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.responsavel %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.motorista %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.km_inicial %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.hora_inicial %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.km_final %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.hora_final %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.percurso %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @mapa_de_bordo.parecer %></td>
+                                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', mapa_de_bordos_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_mapa_de_bordo_path(@mapa_de_bordo), class: 'btn btn-detran-primary' %>

@@ -1,0 +1,51 @@
+<%- model_class = LocalArmazenamento -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.local_armazenamento', default: LocalArmazenamento.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.local_armazenamento', default: LocalArmazenamento.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_local_armazenamento_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:descricao_local) %></th>
+                                    <th><%= model_class.human_attribute_name(:unidade_socioeducativa) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @local_armazenamentos.each do |local_armazenamento| %>
+                <tr>
+                                    <td><%= local_armazenamento.descricao_local %></td>
+                                    <td><%= local_armazenamento.unidade_socioeducativa %></td>
+                                    <td>
+                    <%= link_to_show(local_armazenamento) %>
+                    <%= link_to_edit(edit_local_armazenamento_path(local_armazenamento)) %>
+                    <%= link_to_delete(local_armazenamento) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+// $("#servico_realizado_qtd_socioeducandos_atendidos").empty().append("<%= escape_javascript options_from_collection_for_select(@socioeducandos_atendidos, :id, :quantidade) %>")
+$("#servico_realizado_qtd_socioeducandos_atendidos").val("<%= @socioeducandos_atendidos.last.quantidade %>")

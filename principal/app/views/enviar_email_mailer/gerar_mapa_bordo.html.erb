@@ -1,0 +1,10 @@
+<h1>Mapa de Bordo <span><%= @solicitacao.id %></span></h1>
+
+<dl class="dl-horizontal">
+    <dt><b>Responsável :</b><span><%=  @solicitacao.responsavel %></span></dt>
+    <dt><b>Motorista :</b><span><%=  @solicitacao.motorista %></span></dt>
+    <dt><b>Veiculo :</b><span><%=  @solicitacao.veiculo %></span></dt>
+    <dt><b>Data :</b><span><%=  @solicitacao.data_vistoria %></span></dt>
+    <dt><b>Hora :</b><span><%=  @solicitacao.hora_inicial&.strftime('%H:%M') %></span></dt>
+    
+</dl>

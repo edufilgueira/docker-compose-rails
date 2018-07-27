@@ -1,0 +1,61 @@
+<% content_for :title do %>
+  <%= t('.title', default: @indicador.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @indicador.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                    <th><%= Indicador.human_attribute_name :assunto %></th>
+                    <th><%= Indicador.human_attribute_name :nome %></th>
+                    <th><%= Indicador.human_attribute_name :indicador_unidade_medida %></th>
+                    <th><%= Indicador.human_attribute_name :melhor_sentido %></th>
+                    <th><%= Indicador.human_attribute_name :objetivo %></th>
+                    <th><%= Indicador.human_attribute_name :abrangencia %></th>
+                    <th><%= Indicador.human_attribute_name :area %></th>
+                    <th><%= Indicador.human_attribute_name :periodicidade_coleta %></th>
+                    <th><%= Indicador.human_attribute_name :como_coletar %></th>
+                    <th><%= Indicador.human_attribute_name :como_calcular %></th>
+                    <th><%= Indicador.human_attribute_name :periodicidade_avaliacao %></th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.assunto %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.nome %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.indicador_unidade_medida %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.melhor_sentido %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.objetivo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.abrangencia %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.area %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.periodicidade_coleta %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.como_coletar %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.como_calcular %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @indicador.periodicidade_avaliacao %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', indicadores_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_indicador_path(@indicador), class: 'btn btn-detran-primary' %>

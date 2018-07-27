@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card-header">
+    <%= t('.title', default: @material.class.model_name.human ) %>
+  </div>
+  <div class="card-body">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+              <th><%= Material.human_attribute_name :classe_material %></th>
+              <th><%= Material.human_attribute_name :nome %></th>
+              <th><%= Material.human_attribute_name :descricao %></th>
+              <th><%= Material.human_attribute_name :quantidade %></th>
+              <th><%= Material.human_attribute_name :unidades_medida %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+              <td style="min-width: 90px; word-break: break-all;"><%= @material.classe_material %></th>
+              <td style="min-width: 90px; word-break: break-all;"><%= @material.nome %></th>
+              <td style="min-width: 90px; word-break: break-all;"><%= @material.descricao %></th>
+              <td style="min-width: 90px; word-break: break-all;"><%= @material.quantidade %></th>
+              <td style="min-width: 90px; word-break: break-all;"><%= @material.unidades_medida %></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to('Listar', materiais_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_material_path(@material), class: 'btn btn-detran-primary' %>

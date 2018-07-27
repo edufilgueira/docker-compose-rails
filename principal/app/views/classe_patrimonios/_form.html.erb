@@ -1,0 +1,28 @@
+<%= form_for(@classe_patrimonio, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @classe_patrimonio %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :grupo_patrimonio %>
+      <%= f.collection_select :grupo_patrimonio_id, GrupoPatrimonio.all, :id, :nome, {prompt: 'Selecione'}, class: 'form-control select2' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :codigo %>
+      <%= f.text_field :codigo, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), classe_patrimonios_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

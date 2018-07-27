@@ -1,0 +1,51 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_admissao.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_admissao.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= Socioeduk::Admissao.human_attribute_name :jovem %></th>
+                  <th><%= Socioeduk::Admissao.human_attribute_name :unidade_socioeducativa %></th>
+                  <th><%= Socioeduk::Admissao.human_attribute_name :rebebido_em %></th>
+                  <th><%= Socioeduk::Admissao.human_attribute_name :tipo_desligamento %></th>
+                  <th><%= Socioeduk::Admissao.human_attribute_name :desligado_em %></th>
+                  <th><%= Socioeduk::Admissao.human_attribute_name :numero_processo %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_admissao.jovem %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_admissao.unidade_socioeducativa %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_admissao.rebebido_em %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_admissao.tipo_desligamento %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_admissao.desligado_em %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_admissao.numero_processo %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_admissoes_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_admissao_path(@socioeduk_admissao), class: 'btn btn-detran-primary' %>

@@ -1,0 +1,53 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_evasao.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_evasao.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :jovem %></th>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :data_evasao %></th>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :evadido %></th>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :retornou_em %></th>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :tipo_evasao %></th>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :observacoes %></th>
+                  <th><%= Socioeduk::Evasao.human_attribute_name :motivo %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.jovem %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.data_evasao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.evadido %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.retornou_em %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.tipo_evasao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.observacoes %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_evasao.motivo %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_evasoes_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_evasao_path(@socioeduk_evasao), class: 'btn btn-detran-primary' %>

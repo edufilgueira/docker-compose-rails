@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <%= t('.title', default: @servico.class.model_name.human ) %>
+  </div>
+  <div class="card-body">
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+                    <th><%= Servico.human_attribute_name :eixo %></th>
+                    <th><%= Servico.human_attribute_name :nome %></th>
+              </tr>
+      </thead>
+      <tbody>
+      <tr>
+                    <td style="min-width: 90px; word-break: break-all;"><%= @servico.eixo %></th>
+                    <td style="min-width: 90px; word-break: break-all;"><%= @servico.nome %></th>
+              </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to('Listar', servicos_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_servico_path(@servico), class: 'btn btn-detran-primary' %>

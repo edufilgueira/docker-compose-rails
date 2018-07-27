@@ -1,0 +1,4 @@
+<div class="page-header">
+  <h3><%= I18n.t('.title', :default => [:'helpers.titles.edit'], :model => @usuario.class.model_name.human) %></h3>
+</div>
+<%= render 'form', usuario: @usuario %>

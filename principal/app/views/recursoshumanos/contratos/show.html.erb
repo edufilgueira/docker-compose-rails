@@ -1,0 +1,55 @@
+<% content_for :title do %>
+  <%= t('.title', default: @recursoshumanos_contrato.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @recursoshumanos_contrato.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :recursoshumanos_tipo_legal %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :numero %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :ano %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :doe_ce %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :data_doe_ce %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :pagina_doe_ce %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :inicio_vigencia %></th>
+                                    <th><%= Recursoshumanos::Contrato.human_attribute_name :final_vigencia %></th>
+                                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.recursoshumanos_tipo_legal %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.numero %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.ano %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.doe_ce %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.data_doe_ce %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.pagina_doe_ce %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.inicio_vigencia %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @recursoshumanos_contrato.final_vigencia %></td>
+                                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', recursoshumanos_contratos_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_recursoshumanos_contrato_path(@recursoshumanos_contrato), class: 'btn btn-detran-primary' %>

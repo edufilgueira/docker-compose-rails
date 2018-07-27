@@ -1,0 +1,129 @@
+<%= form_for([@socioeduk_jovem, @socioeduk_documento], url: @url, remote: true, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @socioeduk_documento %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :cpf %>
+      <%= f.text_field :cpf, class: 'form-control cpf' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :rg_numero %>
+      <%= f.text_field :rg_numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :rg_data_emissao %>
+      <%= f.text_field :rg_data_emissao, class: 'form-control datepicker' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :rg_orgao_emissor %>
+      <%= f.text_field :rg_orgao_emissor, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :rg_uf_emissao %>
+      <%= f.text_field :rg_uf_emissao, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :certidao_nascimento %>
+      <%= f.text_field :certidao_nascimento, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :certidao_numero %>
+      <%= f.text_field :certidao_numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :certidao_pagina %>
+      <%= f.text_field :certidao_pagina, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :certidao_livro %>
+      <%= f.text_field :certidao_livro, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :certidao_data_emissao %>
+      <%= f.text_field :certidao_data_emissao, class: 'form-control datepicker' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :certidao_uf_emissao %>
+      <%= f.text_field :certidao_uf_emissao, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :cpts_numero %>
+      <%= f.text_field :cpts_numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :ctps_serie %>
+      <%= f.text_field :ctps_serie, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :ctps_data_emissao %>
+      <%= f.text_field :ctps_data_emissao, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :ctps_uf_emissao %>
+      <%= f.text_field :ctps_uf_emissao, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :titulo_numero %>
+      <%= f.text_field :titulo_numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :titulo_serie %>
+      <%= f.text_field :titulo_serie, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :titulo_secao %>
+      <%= f.text_field :titulo_secao, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :pis_numero %>
+      <%= f.text_field :pis_numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :reservista_numero %>
+      <%= f.text_field :reservista_numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+    </div>
+  </div>
+<% end %>

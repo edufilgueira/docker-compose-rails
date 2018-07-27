@@ -1,0 +1,54 @@
+<%= form_for(@item_patrimonio, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @item_patrimonio %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= label_tag :grupo_patrimonio, "Grupo" %>
+      <% if @item_patrimonio.new_record? %>
+        <%= select_tag :grupo_patrimonio_id, options_from_collection_for_select(GrupoPatrimonio.all, :id, :nome), prompt: 'Selecione', class: 'form-control select2', :data => { :remote => true, :url => lista_classes_grupo_item_patrimonios_path } %>
+      <% else %>
+        <%= select_tag :grupo_patrimonio_id, options_from_collection_for_select(GrupoPatrimonio.all, :id, :nome, @item_patrimonio.classe_patrimonio.grupo_patrimonio.id), prompt: 'Selecione', class: 'form-control select2', :data => { :remote => true, :url => lista_classes_grupo_item_patrimonios_path } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :classe_patrimonio_id %>
+      <% if @item_patrimonio.new_record? %>
+        <%= f.collection_select :classe_patrimonio_id, [], :id, :nome, {prompt: 'Selecione'}, class: 'form-control select2' %>
+      <% else %>
+        <%= f.collection_select :classe_patrimonio_id, [@item_patrimonio.classe_patrimonio], :id, :nome, {prompt: 'Selecione'}, class: 'form-control select2' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :tipo_patrimonio_id %>
+      <%= f.collection_select :tipo_patrimonio_id, TipoPatrimonio.all, :id, :nome, {prompt: 'Selecione'}, class: 'form-control select2' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :codigo %>
+      <%= f.text_field :codigo, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :descricao %>
+      <%= f.text_area :descricao, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), item_patrimonios_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

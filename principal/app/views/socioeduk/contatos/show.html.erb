@@ -1,0 +1,47 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_contato.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_contato.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">åå
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= Socioeduk::Contato.human_attribute_name :jovem %></th>
+                  <th><%= Socioeduk::Contato.human_attribute_name :tipo_contato %></th>
+                  <th><%= Socioeduk::Contato.human_attribute_name :ddd %></th>
+                  <th><%= Socioeduk::Contato.human_attribute_name :numero %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_contato.jovem %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_contato.tipo_contato %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_contato.ddd %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_contato.numero %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>å
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_contatos_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_contato_path(@socioeduk_contato), class: 'btn btn-detran-primary' %>

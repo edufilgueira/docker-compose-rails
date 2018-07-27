@@ -1,0 +1,140 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Filtro de indicadores <small>Selecione ano e mês desejado</small></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= form_tag indicadores_path, {method: :get} do %>
+            <div class="form-group align-items-center">
+              <div class="col-sm-3">
+                <label class="sr-only" for="ano">Ano</label>
+                <div class="input-group mb-2 mb-sm-0">
+                  <div class="input-group-addon">Ano</div>
+                  <%= select_tag 'ano', options_for_select(anos_disponiveis, params[:ano] || Date.current.year), class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="sr-only" for="mes">Mês</label>
+                <div class="input-group mb-2 mb-sm-0">
+                  <div class="input-group-addon">Mês</div>
+                  <%= select_tag 'mes', options_for_select(meses, params[:mes] || Date.current.month), class: 'form-control' %>
+                </div>
+              </div>
+              <div class="col-auto">
+                <%= submit_tag 'Pesquisar', class: 'btn btn-primary' %>
+                <%= button_tag 'Relatório', type: 'button', class: 'btn btn-info', id: 'btn-relatorio-indicacores' %>
+              </div>
+            </div>
+            <% end -%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Indicadores </h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <section class="row text-center">
+              <div class="col-6 col-sm-3">
+                <p class="center-block circle_indicador green"><%= @quantidade %></p>
+                <h3><b>Jovens Atendidos</b></h3>
+                <div class="text-muted"></div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <p class="center-block circle_indicador blue"><%= @indicadores.sum(:meta) %></p>
+                <h3><b>Meta de Serviços</b></h3>
+                <div class="text-muted"></div>
+              </div>
+              <div class="col-6 col-sm-3">
+                <p class="center-block circle_indicador yellow"><%= @indicadores.sum(:quantidade_realizados) %></p>
+                <h3><b>Serviços Realizados</b></h3>
+                <span class="text-muted"></span>
+              </div>
+              <div class="col-6 col-sm-3">
+                <p class="center-block circle_indicador purple"><%= @desempenho %>%</p>
+                <h3><b>Desempenho da Meta</b></h3>
+                <span class="text-muted"></span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>Ranking</h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="">
+                  <tr class="">
+                    <th scope="col" colspan="5"><h3><b>Desempenho de Serviços Socioeducativos - <%= "#{params[:ano] || Date.current.year} - #{nome_mes((params[:mes]&.to_i || Date.current.month))}" %></b></h3></th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Badge</th>
+                    <th scope="col">Unidade</th>
+                    <th scope="col">Meta</th>
+                    <th scope="col">Realizado</th>
+                    <th scope="col">Desempenho</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @indicadores.order(desempenho_meta: :desc).each do |indicador| %>
+                  <tr class="<%= select_class_tr(indicador.desempenho_meta) %>">
+                    <td class="align-middle text-center" width="50px"><%= image_tag "#{select_badge(indicador.desempenho_meta)}", size:'32', class: 'rounded-circle', data: { tooltip: true, placement: 'right' }, title: select_title(indicador.desempenho_meta) %></td>
+                    <td><%= indicador.unidade_socioeducativa&.sigla %></td>
+                    <td><%= indicador.meta %></td>
+                    <td><%= indicador.quantidade_realizados %></td>
+                    <td><%= indicador.desempenho_meta&.to_f %></td>
+                  </tr>
+                  <% end -%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

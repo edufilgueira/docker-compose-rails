@@ -1,0 +1,111 @@
+<%= form_for(@coleta_indicador, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @coleta_indicador %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :indicador %>
+      <%= f.text_field :indicador, value: @coleta_indicador.indicador.nome , disabled: 'disabled' %>
+      <%= f.hidden_field :indicador_id, value: @coleta_indicador.indicador.id %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :abrangencia_coleta %>
+      <%= f.text_field :abrangencia_coleta, readonly: 'readonly', class: 'form-control' %>
+    </div>
+  </div>
+  <% if @coleta_indicador.abrangencia_coleta == 'Área' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :area %>
+      <%= f.collection_select :area_id, Area.all , :id, :nome,  class: 'form-control' %>
+    </div>
+  </div>
+  <% elsif @coleta_indicador.abrangencia_coleta == 'Pessoa' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :pessoa_id %>
+      <%= f.collection_select :pessoa_id, Pessoa.all , :id , :nome, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :indice %>
+      <%= f.text_field :indice, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :periodo_coleta %>
+      <%= f.text_field :periodo_coleta, readonly: 'readonly', class: 'form-control' %>
+    </div>
+  </div>
+  <% if @coleta_indicador.date_field_to_show.member? ('Anual') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :ano %>
+      <%= f.number_field :ano, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+
+
+  <% if @coleta_indicador.date_field_to_show.member? ('Semestral') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :semestre %>
+      <%= f.number_field :semestre, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+
+
+  <% if @coleta_indicador.date_field_to_show.member? ('Quadrimestral') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :quadrimestre %>
+      <%= f.number_field :quadrimestre, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+
+  <% if @coleta_indicador.date_field_to_show.member? ('Trimestral') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :trimestre %>
+      <%= f.number_field :trimestre, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+  <% if @coleta_indicador.date_field_to_show.member? ('Mensal') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :mes %>
+      <%= f.number_field :mes, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+  <% if @coleta_indicador.date_field_to_show.member? ('Quinzenal') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :quinzena %>
+      <%= f.number_field :quinzena, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+  <% if @coleta_indicador.date_field_to_show.member? ('Semanal') %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :semana %>
+      <%= f.number_field :semana, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), coleta_indicadores_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

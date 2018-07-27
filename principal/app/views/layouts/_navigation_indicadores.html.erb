@@ -1,0 +1,43 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <%= render 'layouts/navigation_header' %>
+      <li class="<%= 'active' if current_page?(indicador_unidade_medidas_path) %>">
+        <%= link_to indicador_unidade_medidas_path do %>
+        <i class="fa fa-sort-amount-asc"></i><span class="nav-label">Unidades de Medidas</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(indicadores_list_path) %>">
+        <%= link_to indicadores_list_path do %>
+            <i class="fa fa-edit"></i><span class="nav-label">Criação de Indicadores</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(indicador_assuntos_path) %>">
+        <%= link_to indicador_assuntos_path do %>
+            <i class="fa fa-folder"></i><span class="nav-label">Assuntos</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(coleta_indicadores_path) %>">
+        <%= link_to preselect_coleta_indicadores_path do %>
+        <i class="fa fa-search"></i><span class="nav-label">Coleta de Indicadores</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(indicadores_path) %>">
+        <%= link_to indicadores_path do %>
+        <i class="fa fa-line-chart"></i><span class="nav-label">Indicadores</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(socioeducandos_atendidos_path) %>">
+        <%= link_to socioeducandos_atendidos_path do %>
+        <i class="fa fa-stethoscope"></i><span class="nav-label">Jovens Atendidos</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?(servicos_realizados_path) %>">
+        <%= link_to servicos_realizados_path do %>
+        <i class="fa fa-id-card"></i><span class="nav-label">Serviços Realizados</span>
+        <% end %>
+      </li>
+    </ul>
+
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+<%- model_class = FuncaoPessoa -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.funcao_pessoa', default: FuncaoPessoa.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.funcao_pessoa', default: FuncaoPessoa.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_funcao_pessoa_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name(:funcao) %></th>
+                  <th><%= model_class.human_attribute_name(:pessoa) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @funcao_pessoas.each do |funcao_pessoa| %>
+                <tr>
+                    <td><%= funcao_pessoa.funcao.nome %></td>
+                    <td><%= funcao_pessoa.pessoa %></td>
+                    <td>
+                    <%= link_to_show(funcao_pessoa) %>
+                    <%= link_to_edit(edit_funcao_pessoa_path(funcao_pessoa)) %>
+                    <%= link_to_delete(funcao_pessoa) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

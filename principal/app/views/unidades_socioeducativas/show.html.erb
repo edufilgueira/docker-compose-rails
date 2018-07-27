@@ -1,0 +1,21 @@
+<% content_for :ibox_content do %>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th><%= UnidadeSocioeducativa.human_attribute_name :nome %></th>
+      <th><%= UnidadeSocioeducativa.human_attribute_name :sigla %></th>
+      <th><%= UnidadeSocioeducativa.human_attribute_name :endereco %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @unidade_socioeducativa.nome %></td>
+      <td><%= @unidade_socioeducativa.sigla %></td>
+      <td><%= @unidade_socioeducativa.endereco %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to('Listar', unidades_socioeducativas_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_unidade_socioeducativa_path(@unidade_socioeducativa), class: 'btn btn-detran-primary' %>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: t('.title', default: @unidade_socioeducativa.class.model_name.human ) } %>

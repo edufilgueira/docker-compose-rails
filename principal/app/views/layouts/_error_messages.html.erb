@@ -1,0 +1,13 @@
+<% unless model_name.nil? %>
+<% if model_name.errors.any? %>
+  <div class="text-left alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong> Não foi possível salvar:</strong>
+    <ul>
+    <% model_name.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>

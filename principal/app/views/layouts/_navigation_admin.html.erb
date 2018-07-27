@@ -1,0 +1,165 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <%= render 'layouts/navigation_header' %>
+      <li class="<%= is_active_controller('recursoshumanos/dashboard') %>">
+        <%= link_to  recursoshumanos_dashboard_index_path do %>
+          <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.recursoshumanos_dashboard").pluralize %></span>
+        <% end %>
+      </li>
+
+      <li style="display: none" class="<%= show_active(is_active_module_prefix?('recursoshumanos')) %>">
+        <a href="#"><i class="fa fa-tags"></i> <span>Tabelas Administrativas</span>
+          <span class="pull-right-container">
+            <i class="fa pull-right"></i>
+          </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= is_active_controller('recursoshumanos/tipo_vinculos') %>">
+            <%= link_to  recursoshumanos_tipo_vinculos_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.recursoshumanos_tipo_vinculo").pluralize %></span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('recursoshumanos/tipo_legais') %>">
+            <%= link_to  recursoshumanos_tipo_legais_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.recursoshumanos_tipo_legal").pluralize %></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li class="<%= show_active(is_active_module_prefix?('recursoshumanos') || is_active_controller('pessoas')) %>">
+        <a href="#"><i class="fa fa-tags"></i> <span>Cadastro</span>
+          <span class="pull-right-container">
+            <i class="fa pull-right"></i>
+          </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= is_active_controller('recursoshumanos/contratos') %>">
+            <%= link_to  new_recursoshumanos_contrato_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.recursoshumanos_contrato").pluralize %></span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('recursoshumanos/cargos') %>">
+            <%= link_to  recursoshumanos_cargos_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.recursoshumanos_cargo").pluralize %></span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('pessoas') %>">
+            <%= link_to new_pessoa_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.pessoa").pluralize %></span>
+            <% end %>
+          </li>
+
+        </ul>
+      </li>
+      <li class="<%= show_active(!is_active_module_prefix?('recursoshumanos')) %>" >
+        <a href="#"><i class="fa fa-tags"></i> <span>Controle de Usuarios</span>
+          <span class="pull-right-container">
+            <i class="fa pull-right"></i>
+          </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= 'active' if current_page?(funcao_pessoas_path) %>">
+            <%= link_to funcao_pessoas_path do %>
+              <i class="fas fa-address-card"></i><span class="nav-label">Funções das pessoas</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('admin/usuarios') %>">
+            <%= link_to admin_usuarios_path do %>
+              <i class="fa fa-users"></i><span class="nav-label">Usuários</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('permissoes') %>">
+            <%= link_to permissoes_path do %>
+              <i class="fas fa-hand-paper"></i><span class="nav-label">Permissões</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('pessoas') %>">
+            <%= link_to pessoas_path do %>
+              <i class="fa fa-user-plus"></i><span class="nav-label">Pessoas</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('areas') %>">
+            <%= link_to areas_path do %>
+              <i class="fa fa-map-pin"></i><span class="nav-label">Áreas</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(funcoes_path) %>">
+            <%= link_to funcoes_path do %>
+              <i class="fas fa-id-card"></i><span class="nav-label">Funções</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('gestores_areas') %>">
+            <%= link_to gestores_areas_path do %>
+              <i class="fa fa-user-md"></i><span class="nav-label">Gestores Áreas</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('eixos') %>">
+            <%= link_to eixos_path do %>
+              <i class="fa fa-map-signs"></i><span class="nav-label">Eixos</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('gestores_eixos') %>">
+            <%= link_to gestores_eixos_path do %>
+              <i class="fa fa-user-md"></i><span class="nav-label">Gestores Eixos</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('unidades_socioeducativas') %>">
+            <%= link_to unidades_socioeducativas_path do %>
+              <i class="fa fa-university"></i><span class="nav-label">Unidades</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('gestores_unidades') %>">
+            <%= link_to gestores_unidades_path do %>
+              <i class="fa fa-user-md"></i><span class="nav-label">Gestores Unidades</span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('servicos') %>">
+            <%= link_to servicos_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label">Serviços</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li class="active ">
+        <a href="#"><i class=" fa fa-tags"></i> <span>Movimentação</span>
+          <span class="pull-right-container">
+            <i class="fa pull-right"></i>
+          </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= 'active' if current_page?(recursoshumanos_vinculos_path) %>">
+            <%= link_to  recursoshumanos_vinculos_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label">Contratação</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(desligamento_recursoshumanos_vinculos_path) %>">
+              <%= link_to desligamento_recursoshumanos_vinculos_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label">Desligamento</span>
+            <% end %>
+          </li>
+          
+        </ul>
+      </li>
+      <li class="active ">
+        <a href="#"><i class=" fa fa-tags"></i> <span>Administrar</span>
+          <span class="pull-right-container">
+            <i class="fa pull-right"></i>
+          </span>
+        </a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= is_active_controller('pessoas') %>">
+            <%= link_to pessoas_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.pessoa").pluralize %></span>
+            <% end %>
+          </li>
+          <li class="<%= is_active_controller('recursoshumanos/contratos') %>">
+            <%= link_to  recursoshumanos_contratos_path do %>
+              <i class="fa fa-bookmark"></i><span class="nav-label"><%= I18n.t("activerecord.models.recursoshumanos_contrato").pluralize %></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,61 @@
+<%- model_class = Socioeduk::Evasao -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_evasao', default: Socioeduk::Evasao.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.socioeduk_evasao', default: Socioeduk::Evasao.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_socioeduk_evasao_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name(:jovem) %></th>
+                  <th><%= model_class.human_attribute_name(:data_evasao) %></th>
+                  <th><%= model_class.human_attribute_name(:evadido) %></th>
+                  <th><%= model_class.human_attribute_name(:retornou_em) %></th>
+                  <th><%= model_class.human_attribute_name(:tipo_evasao) %></th>
+                  <th><%= model_class.human_attribute_name(:observacoes) %></th>
+                  <th><%= model_class.human_attribute_name(:motivo) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @socioeduk_evasoes.each do |socioeduk_evasao| %>
+                <tr>
+                  <td><%= socioeduk_evasao.jovem %></td>
+                  <td><%= socioeduk_evasao.data_evasao %></td>
+                  <td><%= socioeduk_evasao.evadido %></td>
+                  <td><%= socioeduk_evasao.retornou_em %></td>
+                  <td><%= socioeduk_evasao.tipo_evasao %></td>
+                  <td><%= socioeduk_evasao.observacoes %></td>
+                  <td><%= socioeduk_evasao.motivo %></td>
+                  <td>
+                    <%= link_to_show(socioeduk_evasao) %>
+                    <%= link_to_edit(edit_socioeduk_evasao_path(socioeduk_evasao)) %>
+                    <%= link_to_delete(socioeduk_evasao) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

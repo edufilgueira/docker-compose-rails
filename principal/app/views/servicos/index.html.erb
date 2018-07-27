@@ -1,0 +1,27 @@
+<%- model_class = Servico -%>
+<% content_for :ibox_content do %>
+  <%= link_to_new new_servico_path %>
+  <table class="table table-hover table-sm">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:nome) %></th>
+       <th><%= model_class.human_attribute_name(:eixo_id) %></th>
+      <th width="18%"><%= I18n.t('helpers.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @servicos.each do |servico| %>
+      <tr>
+        <td><%= servico.nome %></td>
+        <td><%= servico.eixo&.nome %></td>
+        <td>
+          <%= link_to_show(servico) %>
+          <%= link_to_edit(edit_servico_path(servico)) %>
+          <%= link_to_delete(servico) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: I18n.t('activerecord.models.servico', default: Servico.model_name.human.pluralize.upcase) } %>

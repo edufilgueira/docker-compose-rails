@@ -1,0 +1,117 @@
+
+
+        <div style="text-align: justify;font-size: 16px;">
+        <center>
+        <%= image_tag("logo-seas") %>
+        <H2><b> CONTRATO DE TRABALHO POR PRAZO DETERMINADO<br/>EQUIPE T&Eacute;CNICA (N&Iacute;VEL SUPERIOR) </b><H2>
+        </center>
+        <br/><br/>Pelo presente instrumento e na melhor forma de direito, as partes:<br/><br/>O <b>ESTADO DO CEAR&Aacute;</b>, 
+        por interm&eacute;dio da <b>Superintend&ecirc;ncia do Sistema Estadual de Atendimento Socioeducativo &#x2013; SEAS</b>, 
+        &oacute;rg&atilde;o integrante da administra&ccedil;&atilde;o direta do Governo do Estado do Cear&aacute;, inscrito no 
+        CNPJ n&#x00ba; 25.150.364/0001-89, localizado na Avenida Oliveira Paiva, n&#x00ba; 941, Bloco A, Bairro Cidade dos Funcion&aacute;rios, 
+        Fortaleza/CE, CEP 60.822-131, que por for&ccedil;a do presente contrato passa a ser denominada <b>ADMITENTE</b>, e o (a) 
+        Sr. (a) <%= @pessoa.nome %>, brasileiro, <%= @pessoa.estado_civil %>, <%= @pessoa.profissao %>, titular da CTPS &#x2013; 
+        <%= @pessoa.ctps %> S&eacute;rie &#x2013; <%= @pessoa.serie %>, CPF n&#x00ba; <%= @pessoa.cpf %> RG <%= @pessoa.rg %> &#x2013; 
+        <%= @pessoa.emissor %>, residente &agrave; <%= @pessoa.rua %>,  n&#x00ba; <%= @pessoa.numero %> <%= @pessoa.complemento %>, 
+        Bairro <%= @pessoa.bairro %>, CEP <%= @pessoa.cep %> , na Cidade de <%= @pessoa.cidade %>  &#x2013; Estado do 
+        <%= @pessoa.estado %>, doravante designado <b>ADMITIDO</b>, resolvem firmar o presente 
+        CONTRATO DE TRABALHO POR PRAZO DETERMINADO, nos termos da Lei Complementar Estadual n&#x00ba; 163, publicada no Di&aacute;rio Oficial do 
+        Estado de 05 de julho de 2016, alterada pela Lei Complementar Estadual n&#x00ba; 169, publicada no Di&aacute;rio Oficial do Estado de 28 
+        de dezembro de 2016, e do Edital N&#x00ba; 001/2017 &#x2013; SEAS/SEPLAG, publicado no Di&aacute;rio Oficial do Estado de 26 de abril de 
+        2017.<br/><br/><h3>CL&Aacute;USULA PRIMEIRA &#x2013; Da contrata&ccedil;&atilde;o</h3><br/>A contrata&ccedil;&atilde;o &eacute; por 
+        prazo determinado, de 12 meses, a iniciar-se a partir do dia <%= l @date_start, format: :long %>, podendo ser prorrogada por igual 
+        per&iacute;odo, nos termos da Lei Complementar Estadual n&#x00ba; 163, publicada no Di&aacute;rio Oficial do Estado de 05 de julho de 
+        2016, alterada pela Lei Complementar Estadual n&#x00ba; 169, publicada no Di&aacute;rio Oficial do Estado de 28 de dezembro de 2016, 
+        e do Edital N&#x00ba; 001/2017 &#x2013; SEAS/SEPLAG, publicado no Di&aacute;rio Oficial do Estado de 26 de abril de 2017. <br/><br/>
+        <h3>CL&Aacute;USULA SEGUNDA &#x2013; Da presta&ccedil;&atilde;o dos servi&ccedil;os</h3><br/>
+        A presta&ccedil;&atilde;o dos servi&ccedil;os do admitido destina-se a execu&ccedil;&atilde;o das atividades t&eacute;cnicas especializadas 
+        de <%=  @cargo.nome %>, necess&aacute;rias &agrave; viabiliza&ccedil;&atilde;o da implanta&ccedil;&atilde;o de um novo modelo de 
+        gest&atilde;o nos Centros Socioeducativos do Estado do Cear&aacute;, que promova resultados mais efetivos e adequados &agrave; 
+        legisla&ccedil;&atilde;o do Sistema Nacional de Atendimento Socioeducativo &#x2013; SINASE. <br/><br/>
+        <h3>CL&Aacute;USULA TERCEIRA &#x2013; Das atividades</h3><br/>As atividades a serem desenvolvidas pelo admitido s&atilde;o 
+        tempor&aacute;rias e ser&atilde;o executadas de acordo com as atribui&ccedil;&otilde;es do cargo, podendo, a crit&eacute;rio do admitente, 
+        exercer outras atribui&ccedil;&otilde;es, sem preju&iacute;zo de sua atividade-fim. <br/><br/>
+        <h3>CL&Aacute;USULA QUARTA &#x2013; Da jornada de trabalho</h3><br/>A jornada de trabalho do admitido ser&aacute; de 40 (quarenta) 
+        horas semanais, a ser cumprida em sistema de escalas devidamente regulamentado por Portaria do Superintendente do Sistema Estadual de 
+        Atendimento Socioeducativo. <br/><br/>
+        <h3>CL&Aacute;USULA QUINTA &#x2013; Do Sal&aacute;rio</h3><br/>O admitente pagar&aacute; ao admitido, mensalmente, o sal&aacute;rio 
+        de R$ 2.266,00 (dois mil e duzentos e sessenta e seis reais), at&eacute; o 1&#x00ba; dia &uacute;til do m&ecirc;s subsequente ao vencido.
+        <br/><br/><h3>
+        CL&Aacute;USULA SEXTA &#x2013; Dos descontos</h3><br/>O admitido autoriza os descontos, em seu sal&aacute;rio, das import&acirc;ncias 
+        que lhe forem adiantadas pelo admitente, bem como os descontos legais, sobretudo os previdenci&aacute;rios, vale-alimenta&ccedil;&atilde;o 
+        e vale-transporte.<br/>Sempre que causar algum preju&iacute;zo resultante de alguma conduta dolosa ou culposa, ficar&aacute; obrigado o 
+        admitido a ressarcir ao admitente todos os danos causados.<br/><br/>
+        <h3>CL&Aacute;USULA S&Eacute;TIMA &#x2013; Do prazo de vig&ecirc;ncia</h3><br/>O prazo de vig&ecirc;ncia do presente contrato ser&aacute; 
+        correspondente ao per&iacute;odo de 12 (doze) meses, a contar da data de sua assinatura, podendo ser prorrogado uma &uacute;nica vez, 
+        por igual per&iacute;odo.<br/><br/>
+        <h3>CL&Aacute;USULA OITAVA &#x2013; Das obriga&ccedil;&otilde;es das partes</h3><br/>1. DO ADMITENTE: <br/>O admitente proceder&aacute;, 
+        observada a conveni&ecirc;ncia e necessidade do servi&ccedil;o, a an&aacute;lise e avalia&ccedil;&atilde;o da continuidade da atividade 
+        desenvolvida pelo admitido.<br/>2. DO ADMITIDO: <br/>O admitido obriga-se a aceitar e cumprir os regulamentos e normas administrativas 
+        estabelecidas pela Seas, sobretudo &agrave;s normas que constam do Regimento Interno das Unidades Socioeducativas do Estado do Cear&aacute;. 
+        <br/>O admitido obriga-se a cumprir as atividades relacionadas a fun&ccedil;&atilde;o contratada na Unidade Socioeducativa designado pelo 
+        admitente.<br/><br/>
+        <h3>CL&Aacute;USULA NONA &#x2013; Da rescis&atilde;o do presente contrato</h3><br/>A presente contrata&ccedil;&atilde;o extinguir-se-&aacute;:
+        <br/>I &#x2013; pelo t&eacute;rmino do prazo;<br/>II &#x2013; por iniciativa do admitido;<br/>III &#x2013; pela extin&ccedil;&atilde;o ou 
+        conclus&atilde;o das atividades tempor&aacute;rias;<br/>IV &#x2013; pela inaptid&atilde;o e/ou des&iacute;dia do admitido no exerc&iacute;cio 
+        de suas fun&ccedil;&otilde;es;<br/>V &#x2013; nos casos fortuitos ou de for&ccedil;a maior, que impe&ccedil;am o admitente de prosseguir com o 
+        mesmo.<br/><br/>
+        <h3>CL&Aacute;USULA D&Eacute;CIMA &#x2013; Dos Impedimentos</h3><br/>O admitido n&atilde;o poder&aacute;, sob pena de 
+        rescis&atilde;o da presente contrata&ccedil;&atilde;o, sem preju&iacute;zo da apura&ccedil;&atilde;o da responsabilidade civil e administrativa:
+        <br/>I &#x2013; receber gratifica&ccedil;&otilde;es, fun&ccedil;&otilde;es ou encargos n&atilde;o previstos neste contrato;<br/>II &#x2013; 
+        ser nomeado ou designado, ainda que a t&iacute;tulo prec&aacute;rio ou em substitui&ccedil;&atilde;o, para o exerc&iacute;cio de cargo em comiss&atilde;o ou fun&ccedil;&atilde;o de confian&ccedil;a.<br/><br/><h3>CL&Aacute;USULA D&Eacute;CIMA PRIMEIRA &#x2013; Das Disposi&ccedil;&otilde;es Especiais</h3><br/>O admitido compromete-se a respeitar as determina&ccedil;&otilde;es impostas pelo admitente, mantendo conduta irrepreens&iacute;vel no ambiente de trabalho, constituindo motivos para imediata dispensa daquele, al&eacute;m dos previstos em lei, o desacato moral ou agress&atilde;o f&iacute;sica aos representantes do admitente, ao administrador ou aos seus companheiros de trabalho, embriaguez, agress&otilde;es f&iacute;sicas e morais em servi&ccedil;o, bem como o reiterado descumprimento dos deveres previstos no artigo 78 do Regimento Interno das Unidades Socioeducativas do Estado do Cear&aacute;, apurados mediante procedimento administrativo, assegurados o contradit&oacute;rio e a ampla defesa.<br/>O admitido declara ter conferido todos os dados pessoais que constam do pre&acirc;mbulo deste contrato e que os mesmos s&atilde;o ver&iacute;dicos.<br/><br/><h3>CL&Aacute;USULA D&Eacute;CIMA SEGUNDA &#x2013; Do Foro</h3><br/>Fica eleito o foro de Fortaleza-Cear&aacute;, para dirimir quaisquer quest&otilde;es oriundas deste CONTRATO que n&atilde;o puderem ser resolvidas pelos meios administrativos.<br/><br/>E por estarem assim contratados, nos termos de seus respectivos interesses, assinam o presente CONTRATO em 03 (tr&ecirc;s) vias, de igual forma e teor, para que produza os devidos efeitos legais.
+
+
+        </div>
+
+        <p>Fortaleza, <%= @today_date %>.</p>
+        <center>
+            <br>
+
+
+            <table align="center" style="font-weight: bold;text-align: center; width: 100%">
+                <tr>
+                    <td>
+                        <p>
+                        _____________________________________________<br>
+                        CASSIO SILVEIRA FRANCO <br>
+                        Superintende SEAS<br>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                        _____________________________________________<br>
+                        <%= @pessoa.nome.upcase %><br>
+                        <%= @cargo.nome %><br>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        <br/>
+                        <p align="left"> Testemunhas: </p>
+                        <br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                        _____________________________________________<br><br>
+                        CPF ______.______.______-______<br>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+
+                        _____________________________________________<br><br>
+                        CPF ______.______.______-______<br>
+</br> </p>
+                    </td>
+                </tr>
+
+            </table>
+            <a onClick="window.print()" class='btn btn-info btn-sm excluir_da_impressao'/>Imprimir</a>
+        </center>
+
+
+    

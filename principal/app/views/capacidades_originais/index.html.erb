@@ -1,0 +1,53 @@
+<%- model_class = CapacidadeOriginal -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.capacidade_original', default: CapacidadeOriginal.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', :default => [:"helpers.titles.#{params[:action]}"], :model => CapacidadeOriginal.model_name.human.capitalize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_capacidade_original_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name(:unidade_socioeducativa_id) %></th>
+                  <th><%= model_class.human_attribute_name(:capacidade) %></th>
+                  <th><%= model_class.human_attribute_name(:data_referencia) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @capacidades_originais.each do |capacidade_original| %>
+                <tr>
+                  <td><%= capacidade_original.unidade_socioeducativa&.sigla_nome %></td>
+                  <td><%= capacidade_original.capacidade %></td>
+                  <td><%= capacidade_original.data_referencia&.strftime('%d/%m/%Y') %></td>
+                  <td>
+                    <%= link_to_show(capacidade_original) %>
+                    <%= link_to_edit(edit_capacidade_original_path(capacidade_original)) %>
+                    <%= link_to_delete(capacidade_original) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

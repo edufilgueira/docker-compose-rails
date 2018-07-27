@@ -1,0 +1,49 @@
+<%- model_class = Socioeduk::CorOlho -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_cor_olho', default: Socioeduk::CorOlho.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.socioeduk_cor_olho', default: Socioeduk::CorOlho.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_socioeduk_cor_olho_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:descricao) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @socioeduk_cor_olhos.each do |socioeduk_cor_olho| %>
+                <tr>
+                                    <td><%= socioeduk_cor_olho.descricao %></td>
+                                    <td>
+                    <%= link_to_show(socioeduk_cor_olho) %>
+                    <%= link_to_edit(edit_socioeduk_cor_olho_path(socioeduk_cor_olho)) %>
+                    <%= link_to_delete(socioeduk_cor_olho) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

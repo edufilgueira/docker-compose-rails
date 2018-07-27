@@ -1,0 +1,19 @@
+<% content_for :ibox_content do %>
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th><%= Area.human_attribute_name :nome %></th>
+      <th><%= Area.human_attribute_name :subarea_id %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="min-width: 90px; word-break: break-all;"><%= @area.nome %></td>
+      <td style="min-width: 90px; word-break: break-all;"><%= @area.subarea&.sigla_nome %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to('Listar', areas_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_area_path(@area), class: 'btn btn-detran-primary' %>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: t('.title', default: @area.class.model_name.human ) } %>

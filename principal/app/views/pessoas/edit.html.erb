@@ -1,0 +1,4 @@
+<% content_for :ibox_content do %>
+  <%= render partial: 'form', locals: { disable_with: 'Atualizando...' } %>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: t('.title', default: [:"helpers.titles.#{params[:action]}"], model: Pessoa.model_name.human.capitalize) } %>

@@ -1,0 +1,55 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_jovem_caracteristica.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_jovem_caracteristica.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                                    
+                  
+                  <th><%= Socioeduk::JovemCaracteristica.human_attribute_name :jovem %></th>
+                                    
+                  
+                  <th><%= Socioeduk::JovemCaracteristica.human_attribute_name :tipo_sinal %></th>
+                                    
+                  
+                  <th><%= Socioeduk::JovemCaracteristica.human_attribute_name :local_sinal %></th>
+                                    
+                  
+                  <th><%= Socioeduk::JovemCaracteristica.human_attribute_name :descricao %></th>
+                                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_jovem_caracteristica.jovem %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_jovem_caracteristica.tipo_sinal %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_jovem_caracteristica.local_sinal %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_jovem_caracteristica.descricao %></td>
+                                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_jovem_caracteristicas_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_jovem_caracteristica_path(@socioeduk_jovem_caracteristica), class: 'btn btn-success' %>

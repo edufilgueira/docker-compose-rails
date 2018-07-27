@@ -1,0 +1,108 @@
+ <style>
+    section {
+        border:1px solid #2b2b2b;
+        padding: 5px;
+    }
+
+    .linha {
+         border-bottom: 1px solid #2b2b2b;
+    }
+
+    .boldFont {
+        font-weight: bold;
+    } 
+
+    h2 {
+        margin: 10px;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 5px 30px;
+	}
+
+    .box {
+        border:1px solid #2b2b2b;
+        padding: 1px;
+    }
+
+    .boxfull {
+        border:1px solid #2b2b2b;
+        padding: 25px;
+    }
+
+    .km {
+        padding: 5px;
+        display: inline-block;
+    }    
+
+ </style>
+ <header>
+    <br>
+        <%= image_tag 'logo-seas' %>
+    <br>
+</header>
+
+ <section>
+    
+     <ul>
+        <li>GERADO EM:</li>
+            <li><%= @mapa_bordo.data_vistoria %></li>
+    </ul>
+    
+    <div align="center">
+    <h2>Mapa de Bordo</h2>
+    </div>
+    <ul>
+        <li class = 'boldFont'>VEICULO</li>
+            <li class = 'box'><%= @mapa_bordo.veiculo %></li>
+            <br>
+        <li class = 'boldFont'>VISTORIA</li>
+            <li class = 'box'><%= @mapa_bordo.tipo_vistoria %></li>
+             <br>
+        <li class = 'boldFont'>RESPONSAVEL</li>
+            <li class = 'box'><%= @mapa_bordo.responsavel %></li>
+             <br>
+        <li class = 'boldFont'>MOTORISTA</li>
+            <li class = 'box'><%= @mapa_bordo.motorista %></li>
+             <br>
+        <ul class ='km'>     
+            <li class = 'boldFont km'>KM INICIAL</li>
+                <li class = 'box'><%= @mapa_bordo.km_inicial %></li>
+                <br>
+            <li class = 'boldFont km'>KM FINAL</li>
+                <li class = 'box'><%= @mapa_bordo.km_final %></li>
+                <br> 
+        </ul>    
+        <ul class ='km'>       
+            <li class = 'boldFont km'>HORA INICIAL</li>
+                <li class = 'box'><%= @mapa_bordo.hora_inicial&.strftime('%H:%M') %></li>
+                <br>
+            
+            <li class = 'boldFont km'>HORA FINAL</li>
+                <li class = 'box'><%= @mapa_bordo.hora_final&.strftime('%H:%M') %></li>
+                <br>
+        </ul> 
+            <li class = 'boldFont'>PERCURSO</li>
+                <li class = 'boxfull'><%= @mapa_bordo.percurso %></li>
+                <br>
+                
+            <li class = 'boldFont'>PARECER</li>
+                <li class = 'boxfull'><%= @mapa_bordo.parecer %></li>
+                <br>
+                
+    </ul>
+</section>   
+<br> 
+<section>
+    <ul>
+        <li class = 'boldFont'>GESTOR DE TRANSPORTE: ______________________________________________________________________________</li>
+    </ul>  
+    <ul>
+        <li class = 'boldFont'>MOTORISTA: ______________________________________________________________________________</li>
+    </ul>    
+</section>             
+                   
+                   
+                  
+            

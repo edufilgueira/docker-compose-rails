@@ -1,0 +1,60 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <%= render 'layouts/navigation_header' %>
+
+      <li class="<%= is_active_controller('socioeduk/jovens') %>">
+        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label" data-i18n="nav.menulevels">Adolescentes </span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= 'active' if current_page?(socioeduk_jovens_path) %>">
+            <%= link_to socioeduk_jovens_path do %>
+            <i class="fa fa-search"></i><span class="nav-label">Pesquisa</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(new_socioeduk_jovem_path) %>">
+            <%= link_to new_socioeduk_jovem_path do %>
+            <i class="fa fa-user-circle"></i><span class="nav-label">Cadastro</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li class="<%= is_active_controller_prefix?('socioeduk/tipo') %>">
+        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label" data-i18n="nav.menulevels">Tipos </span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse">
+          <li class="<%= 'active' if current_page?(socioeduk_tipo_marca_corporais_path) %>">
+            <%= link_to socioeduk_tipo_marca_corporais_path do %>
+              <i class="fa fa-folder"></i><span class="nav-label">Tipos de Deficiências</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(socioeduk_tipo_deficiencias_path) %>">
+            <%= link_to socioeduk_tipo_deficiencias_path do %>
+                <i class="fa fa-folder"></i><span class="nav-label">Tipo de Marcas Corporais</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(socioeduk_tipo_infracoes_path) %>">
+            <%= link_to socioeduk_tipo_infracoes_path do %>
+                <i class="fa fa-folder"></i><span class="nav-label">Tipos de Infrações</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(socioeduk_tipo_contatos_path) %>">
+            <%= link_to socioeduk_tipo_contatos_path do %>
+                <i class="fa fa-folder"></i><span class="nav-label">Tipos de Contato</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(socioeduk_tipo_desligamentos_path) %>">
+            <%= link_to socioeduk_tipo_desligamentos_path do %>
+                <i class="fa fa-folder"></i><span class="nav-label">Tipos de Desligamento</span>
+            <% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(socioeduk_opcao_sexuais_path) %>">
+            <%= link_to socioeduk_opcao_sexuais_path do %>
+                <i class="fa fa-folder"></i><span class="nav-label">Opção Sexual</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>

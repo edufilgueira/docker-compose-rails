@@ -1,0 +1,208 @@
+    <h4>Dados Pessoais</h4>
+    <div class="form-group">
+      <div class="row">
+        <div class="col s12">
+          <div class="">Nome:</div>
+          <div class="round_bordered s12"><%= @pessoa.nome %></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="">Nome do pai:</div>
+          <div class="round_bordered s12"><%= @pessoa.nome_pai %></div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col s12">
+          <div class="">Nome da mãe:</div>
+          <div class="round_bordered s12"><%= @pessoa.nome_mae %></div>
+        </div>
+      </div>
+  
+        <div class="row">
+          <div class="col s4">
+            <div class="">Estado Civil:</div>
+            <div class="round_bordered s12"><%= @pessoa.estado_civil %></div>
+          </div>
+          <div class="col s4">
+            <div class="">Cônjuge:</div>
+            <div class="round_bordered s12"><%= @pessoa.conjuge %></div>
+          </div>
+          <div class="col s4">
+            <div class="">Profissão:</div>
+            <div class="round_bordered s12"><%= @pessoa.profissao %></div>
+          </div>
+        </div>
+
+      <div class="row">
+      <div class="col s3">
+        <div class="">Nascimento:</div>
+        <div class="round_bordered s12"><%= @pessoa.data_nascimento %></div>
+      </div>
+      <div class="col s3">
+        <div class="">Naturalidade:</div>
+        <div class="round_bordered s12"><%= @pessoa.naturalidade %></div>
+      </div>
+      <div class="col s2">
+        <div class="">UF:</div>
+        <div class="round_bordered s12"><%= @pessoa.uf %></div>
+      </div>
+      <div class="col s3">
+        <div class="">TP Sanguíneo:</div>
+        <div class="round_bordered s12"><%= @pessoa.tipo_sanguineo %></div>
+      </div>
+        <div class="col s1">
+          <div class="">Sexo:</div>
+          <div class="round_bordered s12"><%= @pessoa.sexo %></div>
+        </div>
+      </div>
+
+    </div>
+    <h4>Endereço Residencial</h4>
+    <div class="form-group">
+      <div class="row">
+        <div class="col s10">
+          <div class="">Rua:</div>
+          <div class="round_bordered s12"><%= @pessoa.rua %></div>
+        </div>
+        <div class="col s2">
+          <div class="">Num:</div>
+          <div class="round_bordered s12"><%= @pessoa.numero %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="">Complemento:</div>
+          <div class="round_bordered s12"><%= @pessoa.complemento %></div>
+        </div>
+        <div class="col s6">
+          <div class="">Bairro:</div>
+          <div class="round_bordered s12"><%= @pessoa.bairro %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="">Cidade:</div>
+          <div class="round_bordered s12"><%= @pessoa.cidade %></div>
+        </div>
+        <div class="col s4">
+          <div class="">Estado:</div>
+          <div class="round_bordered s12"><%= @pessoa.estado %></div>
+        </div>
+        <div class="col s2">
+          <div class="">Cep:</div>
+          <div class="round_bordered s12"><%= @pessoa.cep %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s4">
+          <div class="">Telefone:</div>
+          <div class="round_bordered s12"><%= @pessoa.telefone %></div>
+        </div>
+        <div class="col s4">
+          <div class="">Celular:</div>
+          <div class="round_bordered s12"><%= @pessoa.celular %></div>
+        </div>
+        <div class="col s4">
+          <div class="">Email:</div>
+          <div class="round_bordered s12"><%= @pessoa.email_pessoal %></div>
+        </div>
+      </div>
+    </div>
+    <h4>Documentos Pessoais</h4>
+    <div class="form-group">
+      <div class="row">
+        <div class="col s8">
+          <div class="">PIS:</div>
+          <div class="round_bordered s12"><%= @pessoa.pis %></div>
+        </div>
+        <div class="col s4">
+          <div class="">CTPS:</div>
+          <div class="round_bordered s12"><%= @pessoa.ctps %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="">SÉRIE:</div>
+          <div class="round_bordered s12"><%= @pessoa.serie %></div>
+        </div>
+        <div class="col s6">
+          <div class="">CPF:</div>
+          <div class="round_bordered s12"><%= @pessoa.cpf %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="">RG:</div>
+          <div class="round_bordered s12"><%= @pessoa.rg %></div>
+        </div>
+        <div class="col s4">
+          <div class="">Emissor:</div>
+          <div class="round_bordered s12"><%= @pessoa.emissor %></div>
+        </div>
+        <div class="col s2">
+          <div class="">Emissão:</div>
+          <div class="round_bordered s12"><%= @pessoa.emissao %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="">Certificado Militar:</div>
+          <div class="round_bordered s12"><%= @pessoa.certificado_militar %></div>
+        </div>
+        <div class="col s6">
+          <div class="">Emissor Militar:</div>
+          <div class="round_bordered s12"><%= @pessoa.emissor_militar %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <div class="">Banco:</div>
+          <div class="round_bordered s12"><%= @pessoa.banco %></div>
+        </div>
+        <div class="col s3">
+          <div class="">Agencia:</div>
+          <div class="round_bordered s12"><%= @pessoa.agencia %></div>
+        </div>
+        <div class="col s3">
+          <div class="">Conta Corrente:</div>
+          <div class="round_bordered s12"><%= @pessoa.conta_corrente %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s4">
+          <div class="">Titulo Eleitoral:</div>
+          <div class="round_bordered s12"> <%= @pessoa.titulo_eleitoral %>&nbsp;<%= @pessoa.cidade_eleitoral %><%= @pessoa.estado_eleitoral %> </div>
+        </div>
+        <div class="col s4">
+          <div class="">Zona:</div>
+          <div class="round_bordered s12"><%= @pessoa.zona %></div>
+        </div>
+        <div class="col s4">
+          <div class="">Seção:</div>
+          <div class="round_bordered s12"><%= @pessoa.secao %></div>
+        </div>
+      </div>
+      <br>
+
+      <%= form_for(@pessoa, url: recursoshumanos_vinculos_gerar_contrato_path(cpf: @pessoa.cpf),html: {target:'_blank'} ) do |f|  %>
+          <input type="hidden" name="override" value="override">
+      <div class="row">
+        <div class="col s4">
+            Data da contratação:
+            <input name="data_contratacao" type="text" class="data_ass" value="<%= @pessoa.data_contratacao %>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <%= f.submit 'Gerar Contrato', class: 'btn btn-sm btn-success btn-approved excluir_da_impressao'  %>
+          <a onClick="window.print()" class='btn btn-info btn-sm excluir_da_impressao'/>Imprimir</a>
+        <% end%>
+        </div>
+      </div>
+    
+  </div>
+
+  

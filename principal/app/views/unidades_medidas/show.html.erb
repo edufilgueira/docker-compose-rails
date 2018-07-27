@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <%= t('.title', default: @unidades_medida.class.model_name.human ) %>
+  </div>
+  <div class="card-body">
+    <table class="table table-condensed">
+      <thead>
+      <tr>
+                    <th><%= UnidadesMedida.human_attribute_name :nome %></th>
+                    <th><%= UnidadesMedida.human_attribute_name :sigla %></th>
+              </tr>
+      </thead>
+      <tbody>
+      <tr>
+                    <td style="min-width: 90px; word-break: break-all;"><%= @unidades_medida.nome %></th>
+                    <td style="min-width: 90px; word-break: break-all;"><%= @unidades_medida.sigla %></th>
+              </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to('Listar', unidades_medidas_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_unidades_medida_path(@unidades_medida), class: 'btn btn-detran-primary' %>

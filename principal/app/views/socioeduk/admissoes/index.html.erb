@@ -1,0 +1,59 @@
+<%- model_class = Socioeduk::Admissao -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_admissao', default: Socioeduk::Admissao.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.socioeduk_admissao', default: Socioeduk::Admissao.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_socioeduk_admissao_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name(:jovem) %></th>
+                  <th><%= model_class.human_attribute_name(:unidade_socioeducativa) %></th>
+                  <th><%= model_class.human_attribute_name(:rebebido_em) %></th>
+                  <th><%= model_class.human_attribute_name(:tipo_desligamento) %></th>
+                  <th><%= model_class.human_attribute_name(:desligado_em) %></th>
+                  <th><%= model_class.human_attribute_name(:numero_processo) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @socioeduk_admissoes.each do |socioeduk_admissao| %>
+                <tr>
+                  <td><%= socioeduk_admissao.jovem %></td>
+                  <td><%= socioeduk_admissao.unidade_socioeducativa %></td>
+                  <td><%= socioeduk_admissao.rebebido_em %></td>
+                  <td><%= socioeduk_admissao.tipo_desligamento %></td>
+                  <td><%= socioeduk_admissao.desligado_em %></td>
+                  <td><%= socioeduk_admissao.numero_processo %></td>
+                  <td>
+                    <%= link_to_show(socioeduk_admissao) %>
+                    <%= link_to_edit(edit_socioeduk_admissao_path(socioeduk_admissao)) %>
+                    <%= link_to_delete(socioeduk_admissao) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

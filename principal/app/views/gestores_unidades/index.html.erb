@@ -1,0 +1,59 @@
+<%- model_class = GestorUnidade -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.gestor_unidade', default: GestorUnidade.model_name.human.pluralize.upcase) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.gestor_unidade', default: GestorUnidade.model_name.human.pluralize.upcase) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_gestor_unidade_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                   <th><%= model_class.human_attribute_name(:unidade_socioeducativa_id) %></th>
+                   <th><%= model_class.human_attribute_name(:pessoa_id) %></th>
+                   <th><%= model_class.human_attribute_name(:data_inicio) %></th>
+                   <th><%= model_class.human_attribute_name(:data_termino) %></th>
+                   <th><%= model_class.human_attribute_name(:ativo) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @gestores_unidades.each do |gestor_unidade| %>
+                  <tr>
+                    <td><%= gestor_unidade.unidade_socioeducativa&.sigla_nome %></td>
+                    <td><%= gestor_unidade.pessoa&.nome %></td>
+                    <td><%= gestor_unidade.data_inicio %></td>
+                    <td><%= gestor_unidade.data_termino %></td>
+                    <td><%= gestor_unidade.ativo ? 'Sim' : 'Não' %></td>
+                    <td>
+                      <%= link_to_show(gestor_unidade) %>
+                      <%= link_to_edit(edit_gestor_unidade_path(gestor_unidade)) %>
+                      <%= link_to_delete(gestor_unidade) %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

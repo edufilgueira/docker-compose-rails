@@ -1,0 +1,22 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h2 class="modal-title text-center" id="myModalLabel">Cancelar Solicitação</h2>
+      <h4 class="text-center">Por favor justifique o cancelamento</h4>
+    </div>
+    <%= form_for :frm, url: {controller: :solicitacao_transportes, action: :salvar_justificativa_cancelamento} do |f| %>
+      <div class="modal-body">
+          <%= f.hidden_field :id, value: @solicitacao_transporte_id %>
+          <%= f.hidden_field :status, value: 'Cancelado' %>
+          <label>Motivo Cancelamento</label>
+          <%= f.text_area :justificativa_cancelamento, class: 'form-control', required: true %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <%= f.submit "Salvar", class: "btn btn-primary btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

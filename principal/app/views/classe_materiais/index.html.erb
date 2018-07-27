@@ -1,0 +1,31 @@
+<%- model_class = ClasseMaterial -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.classe_material', default: ClasseMaterial.model_name.human.pluralize.upcase) %></h3>
+  <hr/>
+  <%= link_to_new new_classe_material_path %>
+</div>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:codigo) %></th>
+       <th><%= model_class.human_attribute_name(:nome) %></th>
+       <th><%= model_class.human_attribute_name(:grupo_material) %></th>
+      <th width="18%"><%= I18n.t('helpers.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @classe_materiais.each do |classe_material| %>
+      <tr>
+        <td><%= classe_material.codigo %></td>
+        <td><%= classe_material.nome %></td>
+        <td><%= classe_material.grupo_material.to_s %></td>
+        <td>
+          <%= link_to_show(classe_material) %>
+          <%= link_to_edit(edit_classe_material_path(classe_material)) %>
+          <%= link_to_delete(classe_material) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

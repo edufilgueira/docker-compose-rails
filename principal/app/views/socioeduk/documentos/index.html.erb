@@ -1,0 +1,36 @@
+<%- model_class = Socioeduk::Documento -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_documento', default: Socioeduk::Documento.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-sm-12 b-r">
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:cpf) %></th>
+          <th><%= model_class.human_attribute_name(:rg_numero) %></th>
+          <th><%= model_class.human_attribute_name(:certidao_nascimento) %></th>
+          <th><%= model_class.human_attribute_name(:cpts_numero) %></th>
+          <th><%= model_class.human_attribute_name(:titulo_numero) %></th>
+          <th width="18%"><%= I18n.t('helpers.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% socioeduk_documentos&.each do |socioeduk_documento| %>
+        <tr>
+          <td><%= socioeduk_documento.cpf %></td>
+          <td><%= socioeduk_documento.rg_numero %></td>
+          <td><%= socioeduk_documento.certidao_nascimento %></td>
+          <td><%= socioeduk_documento.cpts_numero %></td>
+          <td><%= socioeduk_documento.titulo_numero %></td>
+          <td>
+            <%= link_to_edit(edit_socioeduk_jovem_documento_path(@socioeduk_jovem, socioeduk_documento), remote: true) %>
+            <%= link_to_delete(socioeduk_jovem_documento_path(@socioeduk_jovem, socioeduk_documento)) %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

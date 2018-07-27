@@ -1,0 +1,56 @@
+
+<% if current_usuario.pessoa.funcoes.last.nome == "Gestor de transporte" %>
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <div>
+              <span class=" label label-info pull-right">
+                <%= link_to '<i class="fas fa-map fa-2x"></i>'.html_safe, {controller: :motoristas, action: :index}, style:"color: white" %>
+              </span>
+            </div>
+            <h4>Disponíveis</h4>
+            <div class="caption">
+              <div class="ibox-content">
+                <h1 class="no-margins">
+                  <%= @motorista_diposniveis.count %>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <div>   
+              <span class=" label label-primary pull-right">
+                <%= link_to '<i class="fas fa-road fa-2x"></i>'.html_safe, {controller: :motoristas, action: :index, status: 'ocupado'}, style:"color: white" %>
+              </span>
+            </div>
+            <h4>Ocupados</h4>
+            <div class="caption">
+              <div class="ibox-content">
+                <h1 class="no-margins">
+                  <%= @motorista_ocupados.count %>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="thumbnail">
+            <div>
+              <span class="label label-danger pull-right">
+                <%= link_to '<i class="fa fa-times fa-2x"></i> '.html_safe, {controller: :motoristas, action: :index, status: 'ausente'}, style:"color: white" %>
+              </span>
+            </div>
+            <h4>Ausentes</h4>
+            <div class="caption">
+              <div class="ibox-content">
+                <h1 class="no-margins">
+                  <%= @motorista_ausentes.count %>
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+<% end %>

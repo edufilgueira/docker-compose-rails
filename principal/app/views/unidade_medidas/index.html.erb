@@ -1,0 +1,51 @@
+<%- model_class = UnidadeMedida -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.unidade_medida', default: UnidadeMedida.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.unidade_medida', default: UnidadeMedida.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_unidade_medida_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:descricao) %></th>
+                                    <th><%= model_class.human_attribute_name(:ativo) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @unidade_medidas.each do |unidade_medida| %>
+                <tr>
+                                    <td><%= unidade_medida.descricao %></td>
+                                    <td><%= unidade_medida.ativo %></td>
+                                    <td>
+                    <%= link_to_show(unidade_medida) %>
+                    <%= link_to_edit(edit_unidade_medida_path(unidade_medida)) %>
+                    <%= link_to_delete(unidade_medida) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

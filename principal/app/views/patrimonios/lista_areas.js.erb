@@ -1,0 +1,7 @@
+$('#patrimonio_area_id').empty().html("<%= j options_from_collection_for_select(@areas, :id, :nome) %>");
+var area_id = $('#patrimonio_area_id option:selected').val();
+$.ajax({
+  method: 'POST',
+  url: '<%= lista_subareas_patrimonios_path %>',
+  data: { patrimonio: { area_id: area_id } }
+});

@@ -1,0 +1,97 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_atendimento_inicial.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_atendimento_inicial.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :jovem %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :unidade_socioeducativa %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :entrada_em %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :reincidente %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :cumpre_medida %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :qual_medida %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :cidade_infracao %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :bairro_infracao %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :busca_apreensao %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :cidade_origem_processo %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :cidade_execucao_processo %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :numero_oficio_bo %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :comarca_origem %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :procedencia %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :numero_processo %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :guia_corpo_delito %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :alcoolizado %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :drogado %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :ematomas %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :agressor %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :observacoes %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :nome_condutor %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :funcao_condutor %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :rg_condutor %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :encaminhado %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :encaminhado_em %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :tipo_desligamento %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :desligado_em %></th>
+                  <th><%= Socioeduk::AtendimentoInicial.human_attribute_name :deleted_at %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.jovem %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.unidade_socioeducativa %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.entrada_em %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.reincidente %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.cumpre_medida %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.qual_medida %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.cidade_infracao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.bairro_infracao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.busca_apreensao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.cidade_origem_processo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.cidade_execucao_processo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.numero_oficio_bo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.comarca_origem %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.procedencia %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.numero_processo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.guia_corpo_delito %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.alcoolizado %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.drogado %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.ematomas %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.agressor %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.observacoes %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.nome_condutor %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.funcao_condutor %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.rg_condutor %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.encaminhado %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.encaminhado_em %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.tipo_desligamento %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.desligado_em %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_atendimento_inicial.deleted_at %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_atendimento_iniciais_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_atendimento_inicial_path(@socioeduk_atendimento_inicial), class: 'btn btn-detran-primary' %>

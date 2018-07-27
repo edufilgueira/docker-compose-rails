@@ -1,0 +1,10 @@
+// $("#servico_realizado_gestor_eixo_id").empty().append("<%= escape_javascript options_from_collection_for_select(@eixos, :id, :nome_pessoa) %>")
+$("#gestor_eixo_id").val("<%= @eixos.first&.nome_pessoa %>")
+$("#servico_realizado_gestor_eixo_id").val("<%= @eixos.first&.id %>")
+if ("<%= @eixos.first&.nome_pessoa %>" != "") {
+  $(".gestor_eixo_id").css('display', 'none')
+  $(".gestor_eixo_id").parent().removeClass('control-group error')
+} else {
+  $(".gestor_eixo_id").css('display', 'block')
+  $(".gestor_eixo_id").parent().addClass('control-group error')
+}

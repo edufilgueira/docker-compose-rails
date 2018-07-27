@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= image_tag 'logo-seas.png' %>
+    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="">
+        <tr class="">
+          <th scope="col" colspan="4"><h3><b>Relatório - <%= "#{params[:ano] || Date.current.year} - #{nome_mes((params[:mes]&.to_i || Date.current.month))}" %></b></h3></th>
+        </tr>
+        <tr>
+          <th scope="col">Unidade</th>
+          <th class="text-center" scope="col">Jovens na Unidade</th>
+          <th scope="col">Serviço</th>
+          <th class="text-center" scope="col">Qtd Serviços</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% i = 1 %>
+        <% rowspan = 0 %>
+        <% ind_old = nil %>
+        <% @indicadores.order(:unidade_socioeducativa_id).each_with_index do |indicador, index| %>
+
+          <% if @groups_count[indicador.unidade_socioeducativa_id] > 1 %>
+              <% if i == 1 %>
+              <tr>
+                <td style="vertical-align: middle;" rowspan="<%= @groups_count[indicador.unidade_socioeducativa_id] %>"><b><%= indicador.unidade_socioeducativa&.sigla %></b></td>
+                <td style="vertical-align: middle;" class="text-center" rowspan="<%= @groups_count[indicador.unidade_socioeducativa_id] %>"><b><%= indicador.qtd_socioeducandos_atendidos %></b></td>
+                <td><%= indicador.servico.nome %></td>
+                <td class="text-center"><%= indicador.quantidade_realizados %></td>
+              </tr>
+              <% elsif i > 1 %>
+              <tr>
+                <td><%= indicador.servico.nome %></td>
+                <td class="text-center"><%= indicador.quantidade_realizados %></td>
+              </tr>
+              <% end -%>
+            </tr>
+            <% i += 1 %>
+          <% else %>
+          <tr>
+            <td><b><%= indicador.unidade_socioeducativa&.sigla %></b></td>
+            <td class="text-center"><b><%= indicador.qtd_socioeducandos_atendidos %></b></td>
+            <td><%= indicador.servico.nome %></td>
+            <td class="text-center"><%= indicador.quantidade_realizados %></td>
+          </tr>
+          <% end -%>
+
+        <% end -%>
+      </tbody>
+    </table>
+
+  </div>
+  <%= link_to 'Voltar', indicadores_path, class: 'btn btn-info' %>  
+</div>

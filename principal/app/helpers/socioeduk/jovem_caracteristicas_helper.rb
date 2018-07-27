@@ -1,0 +1,2 @@
+module Socioeduk::JovemCaracteristicasHelper
+end

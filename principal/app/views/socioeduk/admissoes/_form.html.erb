@@ -1,0 +1,46 @@
+<%= form_for(@socioeduk_admissao, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @socioeduk_admissao %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :jovem_id %>
+      <%= f.text_field :jovem_id, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :unidade_socioeducativa %>
+      <%= f.text_field :unidade_socioeducativa, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :rebebido_em %>
+      <%= f.datetime_select :rebebido_em, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :tipo_desligamento %>
+      <%= f.text_field :tipo_desligamento, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :desligado_em %>
+      <%= f.datetime_select :desligado_em, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :numero_processo %>
+      <%= f.text_field :numero_processo, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), socioeduk_admissoes_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

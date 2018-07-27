@@ -1,0 +1,58 @@
+<%- model_class = ServicoRealizado -%>
+<% content_for :title do %>
+<%= t('.title', default: @servico_realizado.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @servico_realizado.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name :eixo_id %></th>
+                  <th><%= model_class.human_attribute_name :gestor_eixo_id %></th>
+                  <th><%= model_class.human_attribute_name :unidade_socioeducativa_id %></th>
+                  <th><%= model_class.human_attribute_name :gestor_unidade_id %></th>
+                  <th><%= model_class.human_attribute_name :area_id %></th>
+                  <th><%= model_class.human_attribute_name :gestor_area_id %></th>
+                  <th><%= model_class.human_attribute_name :qtd_socioeducandos_atendidos %></th>
+                  <th><%= model_class.human_attribute_name :servico_id %></th>
+                  <th><%= model_class.human_attribute_name :quantidade_realizados %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @servico_realizado.eixo&.nome %></td>
+                  <td><%= @servico_realizado.gestor_eixo&.pessoa&.nome %></td>
+                  <td><%= @servico_realizado.unidade_socioeducativa&.nome %></td>
+                  <td><%= @servico_realizado.gestor_unidade&.pessoa&.nome %></td>
+                  <td><%= @servico_realizado.area&.nome %></td>
+                  <td><%= @servico_realizado.gestor_area&.pessoa&.nome %></td>
+                  <td><%= @servico_realizado.qtd_socioeducandos_atendidos %></td>
+                  <td><%= @servico_realizado.servico&.nome %></td>
+                  <td><%= @servico_realizado.quantidade_realizados %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', servicos_realizados_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_servico_realizado_path(@servico_realizado), class: 'btn btn-detran-primary' %>

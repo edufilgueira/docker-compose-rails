@@ -1,0 +1,8 @@
+<div class="card">
+  <div class="card-header">
+    <%= t('.title', default: [:"helpers.titles.#{params[:action]}"], model: ClasseMaterial.model_name.human.capitalize) %>
+  </div>
+  <div class="card-body">
+    <%= render partial: 'form', locals: { disable_with: 'Salvando...' } %>
+  </div>
+</div>

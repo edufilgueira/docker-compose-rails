@@ -1,0 +1,38 @@
+<%= form_for(@gestor_unidade, html: { class: 'form-horizontal' }) do |f| %>
+<%#= render 'layouts/error_messages', model_name: @gestor_unidade %>
+<%= render 'layouts/message_required' %>
+<div class="form-group">
+  <div class="col-sm-4">
+  <%= f.label :unidade_socioeducativa_id, class: 'required' %>
+    <%= f.select :unidade_socioeducativa_id, UnidadeSocioeducativa.all.collect{ |a| ["#{a.sigla} - #{a.nome}", a.id] }, {include_blank: 'Selecione'}, class: 'form-control' %>
+  </div>
+  <div class="col-sm-4">
+  <%= f.label :pessoa_id, class: 'required' %>
+    <%= f.select :pessoa_id, Pessoa.all.collect{ |a| [a.nome, a.id] }, {include_blank: 'Selecione'}, class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-4">
+    <%= f.label :data_inicio, class: 'control-label required' %>
+    <%= f.text_field :data_inicio,class: 'form-control datepicker' %>
+  </div>
+  <div class="col-sm-4">
+    <%= f.label :data_termino, class: 'control-label' %>
+    <%= f.text_field :data_termino, class: 'form-control datepicker' %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-8">
+  <%= f.label :ativo, 'Situação', class: 'control-label' %>
+    <div class="i-checks">
+      <%= f.label :ativo do %> <%= f.check_box :ativo %> <i></i>&nbsp; Ativo <% end -%>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-10">
+    <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+    <%= link_to I18n.t('helpers.links.cancel'), gestores_unidades_path, class: 'btn' %>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,51 @@
+<%- model_class = IndicadorUnidadeMedida -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.indicador_unidade_medida', default: IndicadorUnidadeMedida.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.indicador_unidade_medida', default: IndicadorUnidadeMedida.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_indicador_unidade_medida_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:nome) %></th>
+                                    <th><%= model_class.human_attribute_name(:sigla) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @indicador_unidade_medidas.each do |indicador_unidade_medida| %>
+                <tr>
+                                    <td><%= indicador_unidade_medida.nome %></td>
+                                    <td><%= indicador_unidade_medida.sigla %></td>
+                                    <td>
+                    <%= link_to_show(indicador_unidade_medida) %>
+                    <%= link_to_edit(edit_indicador_unidade_medida_path(indicador_unidade_medida)) %>
+                    <%= link_to_delete(indicador_unidade_medida) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

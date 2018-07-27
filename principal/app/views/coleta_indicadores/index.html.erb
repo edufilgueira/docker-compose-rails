@@ -1,0 +1,73 @@
+<%- model_class = ColetaIndicador -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.coleta_indicador', default: ColetaIndicador.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.coleta_indicador', default: ColetaIndicador.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new preselect_coleta_indicadores_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:indicador) %></th>
+                                    <th><%= model_class.human_attribute_name(:abrangencia_coleta) %></th>
+                                    <th><%= model_class.human_attribute_name(:area) %></th>
+                                    <th><%= model_class.human_attribute_name(:pessoa_id) %></th>
+                                    <th><%= model_class.human_attribute_name(:indice) %></th>
+                                    <th><%= model_class.human_attribute_name(:semestre) %></th>
+                                    <th><%= model_class.human_attribute_name(:quadrimestre) %></th>
+                                    <th><%= model_class.human_attribute_name(:trimestre) %></th>
+                                    <th><%= model_class.human_attribute_name(:mes) %></th>
+                                    <th><%= model_class.human_attribute_name(:quinzena) %></th>
+                                    <th><%= model_class.human_attribute_name(:semana) %></th>
+                                    <th><%= model_class.human_attribute_name(:ano) %></th>
+                                    <th><%= model_class.human_attribute_name(:periodo_coleta) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @coleta_indicadores.each do |coleta_indicador| %>
+                <tr>
+                                    <td><%= coleta_indicador.indicador %></td>
+                                    <td><%= coleta_indicador.abrangencia_coleta %></td>
+                                    <td><%= coleta_indicador.area %></td>
+                                    <td><%= coleta_indicador.pessoa_id %></td>
+                                    <td><%= coleta_indicador.indice %></td>
+                                    <td><%= coleta_indicador.semestre %></td>
+                                    <td><%= coleta_indicador.quadrimestre %></td>
+                                    <td><%= coleta_indicador.trimestre %></td>
+                                    <td><%= coleta_indicador.mes %></td>
+                                    <td><%= coleta_indicador.quinzena %></td>
+                                    <td><%= coleta_indicador.semana %></td>
+                                    <td><%= coleta_indicador.ano %></td>
+                                    <td><%= coleta_indicador.periodo_coleta %></td>
+                                    <td>
+                    <%= link_to_show(coleta_indicador) %>
+                    <%= link_to_edit(edit_coleta_indicador_path(coleta_indicador)) %>
+                    <%= link_to_delete(coleta_indicador) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

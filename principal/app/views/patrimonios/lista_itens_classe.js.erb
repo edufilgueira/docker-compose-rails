@@ -1,0 +1,7 @@
+$('#patrimonio_item_patrimonio_id').empty().append("<%= j options_from_collection_for_select(@itens_patrimonio, :id, :nome) %>");
+var item_patrimonio_id = $('#patrimonio_item_patrimonio_id option:selected').val();
+$.ajax({
+  method: 'POST',
+  url: '<%= informacoes_item_patrimonio_patrimonios_path %>',
+  data: { patrimonio: { item_patrimonio_id: item_patrimonio_id } }
+});

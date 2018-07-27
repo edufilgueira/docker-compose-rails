@@ -1,0 +1,25 @@
+<%- model_class = Eixo -%>
+<% content_for :ibox_content do %>
+  <%= link_to_new new_eixo_path %>
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+         <th><%= model_class.human_attribute_name(:nome) %></th>
+        <th width="18%"><%= I18n.t('helpers.actions') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @eixos.each do |eixo| %>
+        <tr>
+          <td><%= eixo.nome %></td>
+          <td>
+            <%= link_to_show(eixo) %>
+            <%= link_to_edit(edit_eixo_path(eixo)) %>
+            <%= link_to_delete(eixo) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: I18n.t('activerecord.models.eixo', default: Eixo.model_name.human.pluralize.upcase) } %>

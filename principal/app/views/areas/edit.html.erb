@@ -1,0 +1,4 @@
+<% content_for :ibox_content do %>
+  <%= render partial: 'form', locals: { disable_with: 'Atualizando...' } %>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: t("helpers.titles.#{params[:action]}", :model => Area.model_name.human.capitalize) } %>

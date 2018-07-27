@@ -1,0 +1,49 @@
+<%- model_class = Recursoshumanos::TipoVinculo -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.recursoshumanos_tipo_vinculo', default: Recursoshumanos::TipoVinculo.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.recursoshumanos_tipo_vinculo', default: Recursoshumanos::TipoVinculo.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_recursoshumanos_tipo_vinculo_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:nome) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @recursoshumanos_tipo_vinculos.each do |recursoshumanos_tipo_vinculo| %>
+                <tr>
+                                    <td><%= recursoshumanos_tipo_vinculo.nome %></td>
+                                    <td>
+                    <%= link_to_show(recursoshumanos_tipo_vinculo) %>
+                    <%= link_to_edit(edit_recursoshumanos_tipo_vinculo_path(recursoshumanos_tipo_vinculo)) %>
+                    <%= link_to_delete(recursoshumanos_tipo_vinculo) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

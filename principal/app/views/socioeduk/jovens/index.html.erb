@@ -1,0 +1,55 @@
+<%- model_class = Socioeduk::Jovem -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_jovem', default: Socioeduk::Jovem.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.socioeduk_jovem', default: Socioeduk::Jovem.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_socioeduk_jovem_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                  <th><%= model_class.human_attribute_name(:nome) %></th>
+                  <th><%= model_class.human_attribute_name(:apelido) %></th>
+                  <th><%= model_class.human_attribute_name(:data_nascimento) %></th>
+                  <th><%= model_class.human_attribute_name(:nome_mae) %></th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @socioeduk_jovens.each do |socioeduk_jovem| %>
+                <tr>
+                  <td><%= socioeduk_jovem.nome %></td>
+                  <td><%= socioeduk_jovem.apelido %></td>
+                  <td><%= socioeduk_jovem.data_nascimento %></td>
+                  <td><%= socioeduk_jovem.nome_mae %></td>
+                  <td>
+                    <%= link_to_show(socioeduk_jovem) %>
+                    <%= link_to_edit(edit_socioeduk_jovem_path(socioeduk_jovem)) %>
+                    <%= link_to_delete(socioeduk_jovem) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

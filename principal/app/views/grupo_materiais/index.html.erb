@@ -1,0 +1,29 @@
+<%- model_class = GrupoMaterial -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.grupo_material', default: GrupoMaterial.model_name.human.pluralize.upcase) %></h3>
+  <hr/>
+  <%= link_to_new new_grupo_material_path %>
+</div>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:codigo) %></th>
+       <th><%= model_class.human_attribute_name(:nome) %></th>
+       <th width="18%"><%= I18n.t('helpers.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grupo_materiais.each do |grupo_material| %>
+      <tr>
+        <td><%= grupo_material&.codigo %></td>
+        <td><%= grupo_material.nome %></td>
+        <td>
+          <%= link_to_show(grupo_material) %>
+          <%= link_to_edit(edit_grupo_material_path(grupo_material)) %>
+          <%= link_to_delete(grupo_material) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

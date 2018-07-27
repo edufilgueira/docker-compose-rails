@@ -1,0 +1,37 @@
+<% content_for :title do %>
+  <%= I18n.t('.title', default: @usuario.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= I18n.t('.title', default: @usuario.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <dl class="dl-horizontal">
+              <dt><strong>Nome:</strong></dt>
+              <dd><%= @usuario&.pessoa&.nome %></dd>
+              <dt><strong>Email:</strong></dt>
+              <dd><%= @usuario.email %></dd>
+              <dt><strong>Senha padrão:</strong></dt>
+              <dd class="text-danger"><%= Constants::PASSWD_DEFAULT %></dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to I18n.t('helpers.links.back'), admin_usuarios_path, class: 'btn btn-secondary' %>
+<%= link_to I18n.t('helpers.links.edit'), edit_admin_usuario_path(@usuario), class: 'btn btn-secondary' %>

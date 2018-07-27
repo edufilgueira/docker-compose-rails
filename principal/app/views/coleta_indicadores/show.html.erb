@@ -1,0 +1,65 @@
+<% content_for :title do %>
+  <%= t('.title', default: @coleta_indicador.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @coleta_indicador.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                                    <th><%= ColetaIndicador.human_attribute_name :indicador %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :abrangencia_coleta %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :area_id %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :pessoa_id %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :indice %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :semestre %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :quadrimestre %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :trimestre %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :mes %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :quinzena %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :semana %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :ano %></th>
+                                    <th><%= ColetaIndicador.human_attribute_name :periodo_coleta %></th>
+                                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.indicador %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.abrangencia_coleta %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.area_id %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.pessoa_id %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.indice %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.semestre %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.quadrimestre %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.trimestre %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.mes %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.quinzena %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.semana %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.ano %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @coleta_indicador.periodo_coleta %></td>
+                                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', coleta_indicadores_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_coleta_indicador_path(@coleta_indicador), class: 'btn btn-detran-primary' %>

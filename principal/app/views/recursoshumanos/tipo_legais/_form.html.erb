@@ -1,0 +1,22 @@
+<%= form_for(@recursoshumanos_tipo_legal, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @recursoshumanos_tipo_legal %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :recursoshumanos_tipo_vinculo %>
+      <%= f.collection_select :recursoshumanos_tipo_vinculo_id , Recursoshumanos::TipoVinculo.all , :id , :nome , class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), recursoshumanos_tipo_legais_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

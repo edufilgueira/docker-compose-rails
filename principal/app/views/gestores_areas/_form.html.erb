@@ -1,0 +1,40 @@
+<%= form_for(@gestor_area, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @gestor_area %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <%= f.label :area_id, class: 'col-sm-2 required' %>
+    <div class="col-sm-8">
+      <%= f.select :area_id, Area.all.collect{ |a| ["#{a.sigla} - #{a.nome}", a.id] }, {include_blank: 'Selecione'}, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :pessoa_id, class: 'col-sm-2 required' %>
+    <div class="col-sm-8">
+      <%= f.select :pessoa_id, Pessoa.all.collect{ |a| [a.nome, a.id] }, {include_blank: 'Selecione'}, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_inicio, class: 'col-sm-2 required' %>
+    <div class="col-sm-8">
+      <%= f.date_select :data_inicio, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :data_termino, class: 'col-sm-2' %>
+    <div class="col-sm-8">
+      <%= f.text_field :data_termino, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ativo, class: 'col-sm-2' %>
+    <div class="col-sm-8">
+      <%= f.check_box :ativo, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), gestores_areas_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

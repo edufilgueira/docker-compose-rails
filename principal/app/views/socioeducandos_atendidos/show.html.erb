@@ -1,0 +1,48 @@
+<% content_for :title do %>
+<%= t('.title', default: @socioeducando_atendido.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeducando_atendido.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= SocioeducandoAtendido.human_attribute_name :ano %></th>
+                  <th><%= SocioeducandoAtendido.human_attribute_name :mes %></th>
+                  <th><%= SocioeducandoAtendido.human_attribute_name :unidade_socioeducativa %></th>
+                  <th><%= SocioeducandoAtendido.human_attribute_name :quantidade %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeducando_atendido.ano %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeducando_atendido.mes %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeducando_atendido.unidade_socioeducativa&.sigla_nome %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeducando_atendido.quantidade %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to('Listar', socioeducandos_atendidos_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeducando_atendido_path(@socioeducando_atendido), class: 'btn btn-detran-primary' %>

@@ -1,0 +1,44 @@
+<%- model_class = Socioeduk::Endereco -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_endereco', default: Socioeduk::Endereco.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-sm-12 b-r">
+    <table class="table table-hover table-sm">
+      <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:cep) %></th>
+          <th><%= model_class.human_attribute_name(:logradouro) %></th>
+          <th><%= model_class.human_attribute_name(:numero) %></th>
+          <th><%= model_class.human_attribute_name(:bairro) %></th>
+          <th><%= model_class.human_attribute_name(:complemento) %></th>
+          <th><%= model_class.human_attribute_name(:cidade) %></th>
+          <th><%= model_class.human_attribute_name(:estado) %></th>
+          <th><%= model_class.human_attribute_name(:ponto_referencia) %></th>
+          <th><%= model_class.human_attribute_name(:tipo_contato_id) %></th>
+          <th width="18%"><%= I18n.t('helpers.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% socioeduk_enderecos.each do |socioeduk_endereco| %>
+        <tr>
+          <td><%= socioeduk_endereco.cep %></td>
+          <td><%= socioeduk_endereco.logradouro %></td>
+          <td><%= socioeduk_endereco.numero %></td>
+          <td><%= socioeduk_endereco.bairro %></td>
+          <td><%= socioeduk_endereco.complemento %></td>
+          <td><%= socioeduk_endereco.cidade %></td>
+          <td><%= socioeduk_endereco.estado %></td>
+          <td><%= socioeduk_endereco.ponto_referencia %></td>
+          <td><%= socioeduk_endereco.tipo_contato&.descricao %></td>
+          <td>
+            <%= link_to_edit(edit_socioeduk_jovem_endereco_path(@socioeduk_jovem), remote: true) %>
+            <%= link_to_delete(socioeduk_jovem_endereco_path(@socioeduk_jovem)) %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<%- model_class = Motorista -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.motorista', default: Motorista.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.motorista', default: Motorista.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+              <%= render 'manager'%>
+              <%= link_to_new new_motorista_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:nome) %></th>
+                                    <th><%= model_class.human_attribute_name(:numero) %></th>
+                                    <th><%= model_class.human_attribute_name(:registro) %></th>
+                                    <th><%= model_class.human_attribute_name(:validade) %></th>
+                                    <th><%= model_class.human_attribute_name(:categoria) %></th>
+                                    <th><%= model_class.human_attribute_name(:obs) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <% @condutor.each do |motorista| %>
+                <tr>
+                                    <td><%= motorista.pessoa %></td>
+                                    <td><%= motorista.numero %></td>
+                                    <td><%= motorista.registro %></td>
+                                    <td><%= motorista.validade %></td>
+                                    <td><%= motorista.categoria %></td>
+                                    <td><%= motorista.obs %></td>
+                                    <td>
+                    <%= link_to_show(motorista) %>
+                    <%= link_to_edit(edit_motorista_path(motorista)) %>
+                    <%= link_to_delete(motorista) %>
+                  </td>
+                   <td>   
+                      <%= link_to '<i class="fas fa-map"></i>'.html_safe, disponibilizar_motorista_path(motorista.id), class: "btn btn-info btn-sm" %>
+                      <%= link_to '<i class="fas fa-road"></i>'.html_safe, ocupar_motorista_path(motorista.id), class: "btn btn-primary btn-sm" %>
+                      <%= link_to '<i class="fa fa-times"></i>'.html_safe, ausentar_motorista_path(motorista.id), class: "btn btn-danger btn-sm" %>
+                    </td> 
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

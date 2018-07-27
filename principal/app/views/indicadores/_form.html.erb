@@ -1,0 +1,77 @@
+<%= form_for(@indicador, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @indicador %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+      <div class="col-sm-10 col-offset-1">
+        <%= f.label :indicador_assunto %>
+        <%= f.collection_select :indicador_assunto_id, IndicadorAssunto.all , :id, :nome, {prompt: "selecione"}, {class: 'form-control'} %>
+      </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :nome %>
+      <%= f.text_field :nome, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :indicador_unidade_medida %>
+      <%= f.collection_select :indicador_unidade_medida_id, IndicadorUnidadeMedida.all, :id, :nome,{prompt: "selecione"}, {class: 'form-control'} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :melhor_sentido %>
+      <%= f.select :melhor_sentido, @indicador.class.possiveis_sentidos,{prompt: "selecione"} ,{class: "form-control"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :objetivo %>
+      <%= f.text_area :objetivo, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :abrangencia %>
+      <%= f.select :abrangencia, @indicador.class.possiveis_abrangencias,{prompt: "selecione"} ,{class: "form-control"} %>
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :area %>
+      <%= f.collection_select :area_id, Area.all, :id, :nome,{prompt: "selecione"} ,{class: "form-control"} %>
+    </div>
+  </div>
+ <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :periodicidade_coleta %>
+      <%= f.select :periodicidade_coleta, @indicador.class.possiveis_periodicidade_coleta,{prompt: "selecione"} ,{class: "form-control"}   %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :como_coletar %>
+      <%= f.text_area :como_coletar, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :como_calcular %>
+      <%= f.text_area :como_calcular, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :periodicidade_avaliacao %>
+      <%= f.select :periodicidade_avaliacao, @indicador.class.possiveis_periodicidade_avaliacao, {prompt: "selecione"} ,{class: "form-control"}  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), indicadores_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

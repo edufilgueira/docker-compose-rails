@@ -1,0 +1,28 @@
+<header class="main-header">
+  <!-- Logo -->
+  <%= link_to root_path, class: 'logo' do %>
+  <!-- mini logo for sidebar mini 50x50 pixels -->
+  <span class="logo-mini"><b><%= sigla_sistema %></b></span>
+  <!-- logo for regular state and mobile devices -->
+  <span class="logo-lg"><p><%= image_tag "logo_gov.png", size: "25x25" %> <span><%= sigla_sistema %></span></p></span>
+  <% end %>
+
+  <nav id="navbar-example2" class="navbar navbar-light bg-light navbar-toggleable-md">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"></a>
+    <a class="navbar-brand" href="#"><%= nome_sistema %></a>
+    <ul class="nav nav-pills">
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#fat">@fat</a>
+      </li> -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <%= current_usuario.nome %></a>
+        <div class="dropdown-menu">
+          <%= link_to('Dados', edit_usuario_registration_path, :class => 'dropdown-item') %>
+          <div role="separator" class="dropdown-divider"></div>
+          <%= link_to('Logout', destroy_usuario_session_path, :method => :delete, :class => 'dropdown-item') %>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+</header>

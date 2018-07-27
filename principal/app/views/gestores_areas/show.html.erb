@@ -1,0 +1,49 @@
+<% content_for :title do %>
+  <%= t('.title', default: @gestor_area.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @gestor_area.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= GestorArea.human_attribute_name :area %></th>
+                  <th><%= GestorArea.human_attribute_name :pessoa %></th>
+                  <th><%= GestorArea.human_attribute_name :data_inicio %></th>
+                  <th><%= GestorArea.human_attribute_name :data_termino %></th>
+                  <th><%= GestorArea.human_attribute_name :ativo %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @gestor_area.area&.nome %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @gestor_area.pessoa.nome %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @gestor_area.data_inicio %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @gestor_area.data_termino %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @gestor_area.ativo ? 'Sim' : 'Não' %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', gestores_areas_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_gestor_area_path(@gestor_area), class: 'btn btn-detran-primary' %>

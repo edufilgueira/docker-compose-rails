@@ -1,0 +1,55 @@
+<%- model_class = MaterialMovimentacao -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.material_movimentacao', default: MaterialMovimentacao.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', :default => [:"helpers.titles.#{params[:action]}"], :model => MaterialMovimentacao.model_name.human.capitalize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_material_movimentacao_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:material) %></th>
+                                    <th><%= model_class.human_attribute_name(:unidade_socioeducativa) %></th>
+                                    <th><%= model_class.human_attribute_name(:quantidade_movimentada) %></th>
+                                    <th><%= model_class.human_attribute_name(:tipo_movimentacao) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @material_movimentacoes.each do |material_movimentacao| %>
+                <tr>
+                                    <td><%= material_movimentacao.material %></td>
+                                    <td><%= material_movimentacao.unidade_socioeducativa %></td>
+                                    <td><%= material_movimentacao.quantidade_movimentada %></td>
+                                    <td><%= material_movimentacao.tipo_movimentacao %></td>
+                                    <td>
+                    <%= link_to_show(material_movimentacao) %>
+                    <%= link_to_edit(edit_material_movimentacao_path(material_movimentacao)) %>
+                    <%= link_to_delete(material_movimentacao) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

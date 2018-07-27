@@ -1,0 +1,168 @@
+<%= form_for(@patrimonio, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @patrimonio %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= label_tag :grupo_patrimonio_id, "Grupo" %>
+      <% if @patrimonio.new_record? %>
+        <%= select_tag :grupo_patrimonio_id, options_from_collection_for_select(GrupoPatrimonio.all, :id, :nome), prompt: 'Selecione', class: 'form-control select2', :data => { :remote => true, :url => lista_classes_grupo_patrimonios_path } %>
+      <% else %>
+        <%= select_tag :grupo_patrimonio_id, options_from_collection_for_select(GrupoPatrimonio.all, :id, :nome, @patrimonio.item_patrimonio.classe_patrimonio.grupo_patrimonio.id), prompt: 'Selecione', class: 'form-control select2', :data => { :remote => true, :url => lista_classes_grupo_patrimonios_path } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= label_tag :classe_patrimonio_id, "Classe" %>
+      <% if @patrimonio.new_record? %>
+        <%= select_tag :classe_patrimonio_id, options_from_collection_for_select(ClassePatrimonio.all, :id, :nome), prompt: 'Selecione', class: 'form-control select2', :data => { :remote => true, :url => lista_itens_classe_patrimonios_path } %>
+      <% else %>
+        <%= select_tag :classe_patrimonio_id, options_from_collection_for_select(ClassePatrimonio.all, :id, :nome, @patrimonio.item_patrimonio.classe_patrimonio.id), prompt: 'Selecione', class: 'form-control select2', :data => { :remote => true, :url => lista_itens_classe_patrimonios_path } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :item_patrimonio_id %>
+      <% if @patrimonio.new_record? %>
+      <%= f.collection_select :item_patrimonio_id, [], :id, :nome, {prompt: 'Selecione'}, class: 'form-control select2', :data => { :remote => true, :url => informacoes_item_patrimonio_patrimonios_path } %>
+      <% else %>
+      <%= f.collection_select :item_patrimonio_id, [@patrimonio.item_patrimonio], :id, :nome, {prompt: 'Selecione'}, class: 'form-control select2', :data => { :remote => true, :url => informacoes_item_patrimonio_patrimonios_path } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= label_tag :descricao, "Especificação Técnica" %>
+      <% if @patrimonio.new_record? %>
+        <%= text_area_tag :descricao, nil, {class: 'form-control', readonly: true} %>
+      <% else %>
+        <%= text_area_tag :descricao, @patrimonio.item_patrimonio.descricao, {class: 'form-control', readonly: true} %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= label_tag :numero_siga, "Nº Siga" %>
+      <% if @patrimonio.new_record? %>
+        <%= text_field_tag :numero_siga, nil, {class: 'form-control', readonly: true} %>
+        <% else %>
+        <%= text_field_tag :numero_siga, @patrimonio.item_patrimonio.codigo, {class: 'form-control', readonly: true} %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <label>Localização do bem</label>
+      <% if @patrimonio.new_record? %>
+        <%= select_tag :localizacao_bem, options_for_select(["Área", "Depósito"]), prompt: 'Selecione', class: 'form-control' %>
+      <% else %>
+        <% if !@patrimonio.deposito_id.blank? %>
+          <%= select_tag :localizacao_bem, options_for_select(["Área", "Depósito"], "Depósito"), prompt: 'Selecione', class: 'form-control' %>
+        <% else %>
+          <%= select_tag :localizacao_bem, options_for_select(["Área", "Depósito"], "Área"), prompt: 'Selecione', class: 'form-control' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div id="deposito" class="form-group">
+    <div class="col-sm-6">
+      <%= f.label :deposito_id %>
+      <%= f.collection_select :deposito_id, Deposito.all, :id, :nome, {prompt: 'Selecione'}, class: 'form-control' %>
+    </div>
+  </div>
+  <div id="area">
+    <div class="form-group">
+      <div class="col-sm-6">
+        <%= f.label :unidade_socioeducativa_id, 'Unidade Socioeducativa' %>
+        <%= f.collection_select :unidade_socioeducativa_id, UnidadeSocioeducativa.all, :id, :nome, {prompt: 'Selecione'}, data: {remote: true, :url => lista_areas_patrimonios_path}, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6">
+        <%= f.label :area_id %>
+        <% if @patrimonio.new_record? %>
+          <%= f.collection_select :area_id, [], :id, :nome, {include_blank: false}, class: 'form-control', data: {remote: true, :url => lista_subareas_patrimonios_path} %>
+        <% else %>
+          <%= f.collection_select :area_id, [Area.find(@patrimonio.area_id)], :id, :nome, {include_blank: false, selected: @patrimonio.area_id}, class: 'form-control', data: {remote: true, :url => lista_subareas_patrimonios_path} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-6">
+        <%= f.label :subarea_id, 'Subárea' %>
+        <% if @patrimonio.new_record?  %>
+          <%= f.collection_select :subarea_id, [], :id, :nome, {include_blank: false}, id: 'subarea', class: 'form-control' %>
+        <% else %>
+          <%= f.collection_select :subarea_id, [Area.find(@patrimonio.subarea_id)], :id, :nome, {include_blank: false}, id: 'subarea', class: 'form-control' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-6">
+      <%= f.label :statsu_patrimonio %>
+      <%= f.collection_select :status_patrimonio_id, StatusPatrimonio.all, :id, :nome, {prompt: 'Selecione'}, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-10">
+      <% if @patrimonio.new_record? && @patrimonio.tombo_anterior.nil? && @patrimonio.origem_anterior.nil? %>
+        <%= check_box_tag :origem_anterior_bem, true %>
+      <% else %>
+        <%= check_box_tag :origem_anterior_bem, true, {checked: "checked"} %>
+      <% end %>
+      <%= label_tag :origem_anterior_bem, "Origem Anterior do Bem" %>
+    </div>
+  </div>
+  <div id="origem">
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :tombo_anterior %>
+        <%= f.text_field :tombo_anterior, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-3">
+        <%= f.label :origem_anterior %>
+        <%= f.text_field :origem_anterior, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :tombo_atual %>
+      <%= f.text_field :tombo_atual, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :origem_atual %>
+      <%= f.text_field :origem_atual, value: 'SEAS', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :nota_fiscal %>
+      <%= f.text_field :nota_fiscal, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :valor %>
+      <%= f.text_field :valor, class: 'form-control currency' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3">
+      <%= f.label :ciclo_vida_util %>
+      <%= f.text_field :ciclo_vida_util, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), patrimonios_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

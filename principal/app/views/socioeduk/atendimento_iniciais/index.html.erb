@@ -1,0 +1,105 @@
+<%- model_class = Socioeduk::AtendimentoInicial -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.socioeduk_atendimento_inicial', default: Socioeduk::AtendimentoInicial.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.socioeduk_atendimento_inicial', default: Socioeduk::AtendimentoInicial.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_socioeduk_atendimento_inicial_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                <th><%= model_class.human_attribute_name(:jovem) %></th>
+                <th><%= model_class.human_attribute_name(:unidade_socioeducativa) %></th>
+                <th><%= model_class.human_attribute_name(:entrada_em) %></th>
+                <th><%= model_class.human_attribute_name(:reincidente) %></th>
+                <th><%= model_class.human_attribute_name(:cumpre_medida) %></th>
+                <th><%= model_class.human_attribute_name(:qual_medida) %></th>
+                <th><%= model_class.human_attribute_name(:cidade_infracao) %></th>
+                <th><%= model_class.human_attribute_name(:bairro_infracao) %></th>
+                <th><%= model_class.human_attribute_name(:busca_apreensao) %></th>
+                <th><%= model_class.human_attribute_name(:cidade_origem_processo) %></th>
+                <th><%= model_class.human_attribute_name(:cidade_execucao_processo) %></th>
+                <th><%= model_class.human_attribute_name(:numero_oficio_bo) %></th>
+                <th><%= model_class.human_attribute_name(:comarca_origem) %></th>
+                <th><%= model_class.human_attribute_name(:procedencia) %></th>
+                <th><%= model_class.human_attribute_name(:numero_processo) %></th>
+                <th><%= model_class.human_attribute_name(:guia_corpo_delito) %></th>
+                <th><%= model_class.human_attribute_name(:alcoolizado) %></th>
+                <th><%= model_class.human_attribute_name(:drogado) %></th>
+                <th><%= model_class.human_attribute_name(:ematomas) %></th>
+                <th><%= model_class.human_attribute_name(:agressor) %></th>
+                <th><%= model_class.human_attribute_name(:observacoes) %></th>
+                <th><%= model_class.human_attribute_name(:nome_condutor) %></th>
+                <th><%= model_class.human_attribute_name(:funcao_condutor) %></th>
+                <th><%= model_class.human_attribute_name(:rg_condutor) %></th>
+                <th><%= model_class.human_attribute_name(:encaminhado) %></th>
+                <th><%= model_class.human_attribute_name(:encaminhado_em) %></th>
+                <th><%= model_class.human_attribute_name(:tipo_desligamento) %></th>
+                <th><%= model_class.human_attribute_name(:desligado_em) %></th>
+                <th><%= model_class.human_attribute_name(:deleted_at) %></th>
+                <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @socioeduk_atendimento_iniciais.each do |socioeduk_atendimento_inicial| %>
+                <tr>
+                      <td><%= socioeduk_atendimento_inicial.jovem %></td>
+                      <td><%= socioeduk_atendimento_inicial.unidade_socioeducativa %></td>
+                      <td><%= socioeduk_atendimento_inicial.entrada_em %></td>
+                      <td><%= socioeduk_atendimento_inicial.reincidente %></td>
+                      <td><%= socioeduk_atendimento_inicial.cumpre_medida %></td>
+                      <td><%= socioeduk_atendimento_inicial.qual_medida %></td>
+                      <td><%= socioeduk_atendimento_inicial.cidade_infracao %></td>
+                      <td><%= socioeduk_atendimento_inicial.bairro_infracao %></td>
+                      <td><%= socioeduk_atendimento_inicial.busca_apreensao %></td>
+                      <td><%= socioeduk_atendimento_inicial.cidade_origem_processo %></td>
+                      <td><%= socioeduk_atendimento_inicial.cidade_execucao_processo %></td>
+                      <td><%= socioeduk_atendimento_inicial.numero_oficio_bo %></td>
+                      <td><%= socioeduk_atendimento_inicial.comarca_origem %></td>
+                      <td><%= socioeduk_atendimento_inicial.procedencia %></td>
+                      <td><%= socioeduk_atendimento_inicial.numero_processo %></td>
+                      <td><%= socioeduk_atendimento_inicial.guia_corpo_delito %></td>
+                      <td><%= socioeduk_atendimento_inicial.alcoolizado %></td>
+                      <td><%= socioeduk_atendimento_inicial.drogado %></td>
+                      <td><%= socioeduk_atendimento_inicial.ematomas %></td>
+                      <td><%= socioeduk_atendimento_inicial.agressor %></td>
+                      <td><%= socioeduk_atendimento_inicial.observacoes %></td>
+                      <td><%= socioeduk_atendimento_inicial.nome_condutor %></td>
+                      <td><%= socioeduk_atendimento_inicial.funcao_condutor %></td>
+                      <td><%= socioeduk_atendimento_inicial.rg_condutor %></td>
+                      <td><%= socioeduk_atendimento_inicial.encaminhado %></td>
+                      <td><%= socioeduk_atendimento_inicial.encaminhado_em %></td>
+                      <td><%= socioeduk_atendimento_inicial.tipo_desligamento %></td>
+                      <td><%= socioeduk_atendimento_inicial.desligado_em %></td>
+                      <td><%= socioeduk_atendimento_inicial.deleted_at %></td>
+                      <td>
+                    <%= link_to_show(socioeduk_atendimento_inicial) %>
+                    <%= link_to_edit(edit_socioeduk_atendimento_inicial_path(socioeduk_atendimento_inicial)) %>
+                    <%= link_to_delete(socioeduk_atendimento_inicial) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<%- model_class = Area -%>
+<% content_for :ibox_content do %>
+  <%= link_to_new new_area_path %>
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+         <th><%= model_class.human_attribute_name(:sigla) %></th>
+         <th><%= model_class.human_attribute_name(:nome) %></th>
+         <th><%= model_class.human_attribute_name(:subarea_id) %></th>
+         <th><%= model_class.human_attribute_name(:unidade_socioeducativa_id) %></th>
+        <th width="18%"><%= I18n.t('helpers.actions') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @areas.each do |area| %>
+        <tr>
+          <td><%= area.sigla %></td>
+          <td><%= area.nome %></td>
+          <td><%= "#{area.subarea&.sigla} - #{area.subarea&.nome}" %></td>
+          <td><%= area.unidade_socioeducativa&.sigla_nome %></td>
+          <td>
+            <%= link_to_show(area) %>
+            <%= link_to_edit(edit_area_path(area)) %>
+            <%= link_to_delete(area) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end -%>
+<%= render partial: 'common/box', locals: { title: I18n.t('activerecord.models.area', default: Area.model_name.human.pluralize.upcase) } %>
+
+

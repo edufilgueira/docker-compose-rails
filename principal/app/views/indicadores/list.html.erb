@@ -1,0 +1,70 @@
+<%- model_class = Indicador -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.indicador', default: Indicador.model_name.human.pluralize.titleize) %>
+<% end -%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5><%=  I18n.t('activerecord.models.indicador', default: Indicador.model_name.human.pluralize.titleize) %></h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+            <%= link_to_new new_indicador_path %>
+            <table class="table table-hover table-sm">
+                <thead>
+                  <tr>
+                    <th><%= Indicador.human_attribute_name :assunto %></th>
+                    <th><%= Indicador.human_attribute_name :nome %></th>
+                    <th><%= Indicador.human_attribute_name :indicador_unidade_medida %></th>
+                    <th><%= Indicador.human_attribute_name :melhor_sentido %></th>
+                    <th><%= Indicador.human_attribute_name :objetivo %></th>
+                    <th><%= Indicador.human_attribute_name :abrangencia %></th>
+                    <th><%= Indicador.human_attribute_name :area %></th>
+                    <th><%= Indicador.human_attribute_name :periodicidade_coleta %></th>
+                    <th><%= Indicador.human_attribute_name :como_coletar %></th>
+                    <th><%= Indicador.human_attribute_name :como_calcular %></th>
+                    <th><%= Indicador.human_attribute_name :periodicidade_avaliacao %></th>
+                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @indicadores.each do |indicador| %>
+                  <tr>
+                    <td><%= indicador.indicador_assunto %></td>
+                    <td><%= indicador.nome %></td>
+                    <td><%= indicador.indicador_unidade_medida %></td>
+                    <td><%= indicador.melhor_sentido %></td>
+                    <td><%= indicador.objetivo %></td>
+                    <td><%= indicador.abrangencia %></td>
+                    <td><%= indicador.area %></td>
+                    <td><%= indicador.periodicidade_coleta %></td>
+                    <td><%= indicador.como_coletar %></td>
+                    <td><%= indicador.como_calcular %></td>
+                    <td><%= indicador.periodicidade_avaliacao %></td>
+                    <td>
+                    <%= link_to_show(indicador) %>
+                    <%= link_to_edit(edit_indicador_path(indicador)) %>
+                    <%= link_to_delete(indicador) %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

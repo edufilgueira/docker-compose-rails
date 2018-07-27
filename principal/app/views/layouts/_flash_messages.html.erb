@@ -1,0 +1,33 @@
+<!-- <div id="flash-messages">
+  <%#= bootstrap_flash %>
+</div> -->
+<script type="text/javascript">
+  msgs = '<%= flash.collect{|i, j| j}.join('\n') %>'
+  type = '<%= flash.collect{|i, j| i}.first %>'
+  if (msgs != '') {
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "progressBar": true,
+      "preventDuplicates": false,
+      "positionClass": "toast-top-right",
+      "onclick": null,
+      "showDuration": "400",
+      "hideDuration": "5000",
+      "timeOut": "10000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+    if (type == 'error') {
+      toastr.error(msgs,'Aviso');
+    } else {
+      toastr.success(msgs,'Aviso');
+    }
+    $('.custom-alert').fadeIn();
+    $('.custom-alert-active').fadeOut();
+  }
+</script>
+

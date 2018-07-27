@@ -1,0 +1,7 @@
+<% if !@item_patrimonio.nil? %>
+  $("#descricao").val("<%= j @item_patrimonio.descricao %>");
+  $("#numero_siga").val("<%= j @item_patrimonio.codigo %>");
+<% else %>
+  $("#descricao").val('');
+  $("#numero_siga").val('');
+<% end %>

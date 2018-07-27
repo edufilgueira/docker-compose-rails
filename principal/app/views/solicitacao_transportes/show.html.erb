@@ -1,0 +1,61 @@
+<% content_for :title do %>
+  <%= t('.title', default: @solicitacao_transporte.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @solicitacao_transporte.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :tipo_solicitacao_transporte %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :area %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :destinado_para %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :data_transporte %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :data_retorno %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :hora_solicitada %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :hora_prevista_retorno %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :destino %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :justificativa %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :urgente %></th>
+                  <th><%= SolicitacaoTransporte.human_attribute_name :justificativa_urgencia %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.tipo_solicitacao_transporte %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.area %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.destinado_para %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.data_transporte %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.data_retorno %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.hora_solicitada %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.hora_prevista_retorno %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.destino %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.justificativa %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.urgente %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @solicitacao_transporte.justificativa_urgencia %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', solicitacao_transportes_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_solicitacao_transporte_path(@solicitacao_transporte), class: 'btn btn-detran-primary' %>

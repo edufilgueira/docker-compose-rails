@@ -1,0 +1,76 @@
+<%= form_for(@servico_realizado, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @servico_realizado %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :eixo_id, class: 'required' %>
+      <%= f.select :eixo_id, Eixo.all.collect{ |a| [a.nome, a.id] }, {include_blank: 'Selecione'}, { data: { remote: true, url: filtra_eixos_path }, class: "form-control select2" } %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label :gestor_eixo_id, class: 'required' %>
+      <%= text_field_tag :gestor_eixo_id, '', class: 'form-control', readonly: 'readonly' %>
+      <div class="invalid-feedback gestor_eixo_id">&nbsp;não pode ficar em branco</div>
+      <%= f.hidden_field :gestor_eixo_id %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :unidade_socioeducativa_id, class: 'required' %>
+      <%= f.select :unidade_socioeducativa_id, UnidadeSocioeducativa.all.collect{ |a| [a.nome, a.id] }, {include_blank: 'Selecione'}, { data: { remote: true, url: filtra_unidades_path }, class: "form-control select2" } %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label :gestor_unidade_id, class: 'required' %>
+      <%= text_field_tag :gestor_unidade_id, '', class: 'form-control', readonly: 'readonly' %>
+      <div class="invalid-feedback gestor_unidade_id">&nbsp;não pode ficar em branco</div>
+      <%= f.hidden_field :gestor_unidade_id %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :area_id, class: 'required' %>
+      <%= f.select :area_id, [], {include_blank: 'Selecione'}, { data: { remote: true, url: filtra_areas_path }, class: "form-control" } %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label :gestor_area_id, class: 'required' %>
+      <%= text_field_tag :gestor_area_id, '', class: 'form-control', readonly: 'readonly' %>
+      <div class="invalid-feedback gestor_area_id">&nbsp;não pode ficar em branco</div>
+      <%= f.hidden_field :gestor_area_id %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2">
+      <%= f.label :ano %>
+      <%= f.text_field :ano, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.label :mes %>
+      <%= f.select :mes, options_for_select(meses, @servico_realizado.mes), {include_blank: 'Selecione'}, class: 'form-control' %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label :qtd_socioeducandos_atendidos, class: 'required' %>
+      <%= f.text_field :qtd_socioeducandos_atendidos, class: 'form-control', readonly: 'readonly' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :servico_id, class: 'required' %>
+      <%= f.select :servico_id, Servico.all.collect{ |a| [a.nome, a.id] }, {include_blank: 'Selecione'}, class: 'form-control select2' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4">
+      <%= f.label :quantidade_realizados, class: 'required' %>
+      <%= f.number_field :quantidade_realizados, class: 'form-control' %>
+    </div>
+    <div class="col-sm-4">
+      <%= f.label :meta %>
+      <%= f.number_field :meta, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), servicos_realizados_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

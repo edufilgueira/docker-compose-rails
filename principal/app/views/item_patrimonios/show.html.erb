@@ -1,0 +1,51 @@
+<% content_for :title do %>
+  <%= t('.title', default: @item_patrimonio.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @item_patrimonio.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= ItemPatrimonio.human_attribute_name :grupo_patrimonio %></th>
+                  <th><%= ItemPatrimonio.human_attribute_name :classe_patrimonio %></th>
+                  <th><%= ItemPatrimonio.human_attribute_name :tipo_patrimonio %></th>
+                  <th><%= ItemPatrimonio.human_attribute_name :codigo %></th>
+                  <th><%= ItemPatrimonio.human_attribute_name :nome %></th>
+                  <th><%= ItemPatrimonio.human_attribute_name :descricao %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @item_patrimonio.classe_patrimonio.grupo_patrimonio %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @item_patrimonio.classe_patrimonio %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @item_patrimonio.tipo_patrimonio %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @item_patrimonio.codigo %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @item_patrimonio.nome %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @item_patrimonio.descricao %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', item_patrimonios_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_item_patrimonio_path(@item_patrimonio), class: 'btn btn-detran-primary' %>

@@ -1,0 +1,3 @@
+$('#modalAuxiliarTitle').html('Novo endereço')
+$('#modalAuxiliar').find('.modal-body').html("<%= escape_javascript( render partial: 'form', locals: { disable_with: 'Salvando...' } ) %>");
+$('#modalAuxiliar').modal()

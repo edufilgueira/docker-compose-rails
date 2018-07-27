@@ -1,0 +1,29 @@
+<%- model_class = UnidadesMedida -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.unidades_medida', default: UnidadesMedida.model_name.human.pluralize.upcase) %></h3>
+  <hr/>
+  <%= link_to_new new_unidades_medida_path %>
+</div>
+
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:nome) %></th>
+       <th><%= model_class.human_attribute_name(:sigla) %></th>
+      <th width="18%"><%= I18n.t('helpers.actions') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @unidades_medidas.each do |unidades_medida| %>
+      <tr>
+        <td><%= unidades_medida.nome %></td>
+        <td><%= unidades_medida.sigla %></td>
+        <td>
+          <%= link_to_show(unidades_medida) %>
+          <%= link_to_edit(edit_unidades_medida_path(unidades_medida)) %>
+          <%= link_to_delete(unidades_medida) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

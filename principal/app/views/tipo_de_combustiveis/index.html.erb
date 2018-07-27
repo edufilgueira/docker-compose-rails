@@ -1,0 +1,49 @@
+<%- model_class = TipoDeCombustivel -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.tipo_de_combustivel', default: TipoDeCombustivel.model_name.human.pluralize.titleize) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.tipo_de_combustivel', default: TipoDeCombustivel.model_name.human.pluralize.titleize) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to_new new_tipo_de_combustivel_path %>
+            <table class="table table-hover table-sm">
+              <thead>
+                <tr>
+                                    <th><%= model_class.human_attribute_name(:nome) %></th>
+                                    <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @tipo_de_combustiveis.each do |tipo_de_combustivel| %>
+                <tr>
+                                    <td><%= tipo_de_combustivel.nome %></td>
+                                    <td>
+                    <%= link_to_show(tipo_de_combustivel) %>
+                    <%= link_to_edit(edit_tipo_de_combustivel_path(tipo_de_combustivel)) %>
+                    <%= link_to_delete(tipo_de_combustivel) %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

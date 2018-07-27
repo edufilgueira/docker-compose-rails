@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:9.6
+    container_name: principal_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: v03admin%
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - 5436:5432
+  sistema:
+    build: .
+    container_name: principal_web
+    volumes:
+      - ./rails_app:/rails_app
+    ports:
+      - 3000:3000
+    depends_on:
+      - db

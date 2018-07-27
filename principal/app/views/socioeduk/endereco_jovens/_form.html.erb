@@ -1,0 +1,46 @@
+<%= form_for(@socioeduk_endereco_jovem, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @socioeduk_endereco_jovem %>
+  <%= render 'layouts/message_required' %>
+  <div class="form-group">
+    <div class="col-sm-10 col-offset-1">
+      <%= f.label :jovem %>
+      <%= f.collection_select :jovem_id, Socioeduk::Jovem.all , :id, :nome, {prompt: "selecione"} ,{class: "form-control"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-3 col-offset-1">
+      <%= f.label :cep %>
+      <%= f.text_field :cep, class: 'form-control' %>
+    </div>
+    <div class="col-sm-7 col-offset-1">
+     <%= f.label :cidade %>
+     <%= f.collection_select :cidade_id, Socioeduk::Cidade.all , :id, :nome, {prompt: "selecione"} ,{class: "form-control"} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-7 col-offset-1">
+      <%= f.label :rua %>
+      <%= f.text_field :rua, class: 'form-control' %>
+    </div>
+    <div class="col-sm-3 col-offset-1">
+      <%= f.label :numero %>
+      <%= f.text_field :numero, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-5 col-offset-1">
+      <%= f.label :complemento %>
+      <%= f.text_field :complemento, class: 'form-control' %>
+    </div>
+    <div class="col-sm-5 col-offset-1">
+      <%= f.label :bairro %>
+      <%= f.text_field :bairro, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary', data: { disable_with: disable_with } %>
+      <%= link_to I18n.t('helpers.links.cancel'), socioeduk_endereco_jovens_path, class: 'btn btn-warning' %>
+    </div>
+  </div>
+<% end %>

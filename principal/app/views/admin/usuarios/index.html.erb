@@ -1,0 +1,59 @@
+<%- model_class = Usuario -%>
+<% content_for :title do %>
+<%=  I18n.t('activerecord.models.usuario') %>
+<% end -%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%=  I18n.t('activerecord.models.usuario') %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <%= link_to I18n.t('helpers.links.new'), new_admin_usuario_path, class: 'btn btn-success btn-sm' %>
+            <table class="table table-hover table-sm">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>#</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Cargo</th>
+                  <th>Permissão</th>
+                  <th width="18%"><%= I18n.t('helpers.actions') %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @usuarios.each_with_index do |usuario, index| %>
+                <tr>
+                  <td><%= usuario.id %></td>
+                  <td><%= usuario&.pessoa&.nome %></td>
+                  <td><%= usuario.email %></td>
+                  <td><%= usuario.cargo %></td>
+                  <td><%= usuario.permissao&.perfil %></td>
+                  <td>
+                    <%= link_to_show([:admin, usuario]) %>
+                    <%= link_to_edit(edit_admin_usuario_path(usuario)) %>
+                    <%= link_to(content_tag(:i, nil, class: 'fa fa-unlock-alt text-muted'), admin_usuario_redefinir_senha_path(usuario), data: { confirm: 'Redefinir a senha deste usuário?', tooltip: 'true' }, class: 'btn btn-outline-secondary btn-sm', title: 'Redefinir Senha') %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

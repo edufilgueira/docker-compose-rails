@@ -1,0 +1,53 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_endereco_jovem.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_endereco_jovem.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :jovem %></th>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :cidade %></th>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :rua %></th>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :numero %></th>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :complemento %></th>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :bairro %></th>
+                                    <th><%= Socioeduk_endereco_jovem.human_attribute_name :cep %></th>
+                                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.jovem %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.cidade %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.rua %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.numero %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.complemento %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.bairro %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_endereco_jovem.cep %></td>
+                                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_endereco_jovens_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_endereco_jovem_path(@socioeduk_endereco_jovem), class: 'btn btn-success %>

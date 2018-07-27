@@ -1,0 +1,9 @@
+<%= form_for(@coleta_indicador, html: { class: 'form-horizontal' }) do |f| %>
+  <%#= render 'layouts/error_messages', model_name: @coleta_indicador %>
+  <%= render 'layouts/message_required' %>
+  <%= f.label :indicador %>
+  <%= f.collection_select :indicador_id , Indicador.all , :id , :nome %>
+
+  <%= f.submit 'Criar', {formaction: coleta_indicadores_path, class: 'btn'} %>
+  <%= f.submit 'Listar', {formaction: index_coleta_indicadores_path, class: 'btn'} %>
+<% end %>

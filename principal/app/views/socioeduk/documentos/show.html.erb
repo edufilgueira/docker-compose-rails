@@ -1,0 +1,83 @@
+<% content_for :title do %>
+  <%= t('.title', default: @socioeduk_documento.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @socioeduk_documento.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th><%= Socioeduk::Documento.human_attribute_name :jovem %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :cpf %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :rg_numero %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :rg_data_emissao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :rg_orgao_emissor %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :rg_uf_emissao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :certidao_nascimento %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :certidao_numero %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :certidao_pagina %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :certidao_livro %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :certidao_data_emissao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :certidao_uf_emissao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :cpts_numero %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :ctps_serie %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :ctps_data_emissao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :ctps_uf_emissao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :titulo_numero %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :titulo_serie %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :titulo_secao %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :pis_numero %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :reservista_numero %></th>
+                  <th><%= Socioeduk::Documento.human_attribute_name :deleted_at %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.jovem %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.cpf %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.rg_numero %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.rg_data_emissao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.rg_orgao_emissor %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.rg_uf_emissao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.certidao_nascimento %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.certidao_numero %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.certidao_pagina %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.certidao_livro %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.certidao_data_emissao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.certidao_uf_emissao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.cpts_numero %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.ctps_serie %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.ctps_data_emissao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.ctps_uf_emissao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.titulo_numero %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.titulo_serie %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.titulo_secao %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.pis_numero %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.reservista_numero %></td>
+                  <td style="min-width: 90px; word-break: break-all;"><%= @socioeduk_documento.deleted_at %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', socioeduk_documentos_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_socioeduk_documento_path(@socioeduk_documento), class: 'btn btn-detran-primary' %>

@@ -1,0 +1,47 @@
+<% content_for :title do %>
+  <%= t('.title', default: @material_movimentacao.class.model_name.human ) %>
+<% end -%>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5><%= t('.title', default: @material_movimentacao.class.model_name.human ) %></h5>
+        <div class="ibox-tools">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+      </div>
+      <div class="ibox-content">
+        <div class="row">
+          <div class="col-sm-12 b-r">
+            <table class="table table-condensed">
+              <thead>
+                <tr>
+                                    <th><%= MaterialMovimentacao.human_attribute_name :material %></th>
+                                    <th><%= MaterialMovimentacao.human_attribute_name :unidade_socioeducativa %></th>
+                                    <th><%= MaterialMovimentacao.human_attribute_name :quantidade_movimentada %></th>
+                                    <th><%= MaterialMovimentacao.human_attribute_name :tipo_movimentacao %></th>
+                                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @material_movimentacao.material %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @material_movimentacao.unidade_socioeducativa %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @material_movimentacao.quantidade_movimentada %></td>
+                                    <td style="min-width: 90px; word-break: break-all;"><%= @material_movimentacao.tipo_movimentacao %></td>
+                                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to('Listar', material_movimentacoes_path, class: 'btn btn-default') %>
+<%= link_to 'Editar', edit_material_movimentacao_path(@material_movimentacao), class: 'btn btn-detran-primary' %>
