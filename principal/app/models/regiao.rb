@@ -1,2 +1,0 @@
-class Regiao < ApplicationRecord
-end

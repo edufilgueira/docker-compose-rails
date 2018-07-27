@@ -1,2 +1,0 @@
-class UnidadeMedida < ApplicationRecord
-end

@@ -1,2 +1,0 @@
-module Socioeduk::JovemContatosHelper
-end

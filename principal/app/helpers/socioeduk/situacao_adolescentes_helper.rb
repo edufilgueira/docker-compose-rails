@@ -1,2 +1,0 @@
-module Socioeduk::SituacaoAdolescentesHelper
-end

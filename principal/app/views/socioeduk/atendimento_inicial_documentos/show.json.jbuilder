@@ -1,3 +1,0 @@
-# frozen_string_literal: true
-
-json.partial! 'socioeduk_atendimento_inicial_documentos/socioeduk_atendimento_inicial_documento', socioeduk_atendimento_inicial_documento: @socioeduk_atendimento_inicial_documento
